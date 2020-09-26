@@ -243,7 +243,7 @@
 
                                     </tr>
                                     <tr>
-                                        <td>眼睛盒</td>
+                                        <td>眼镜盒</td>
                                         <td colspan="2"><span><?= $detail['contact_les']?></span></td>
                                         <td>个</td>
                                         <td><span class="goods-title"><?= $detail['contact_les_num']?></td>

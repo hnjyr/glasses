@@ -178,8 +178,8 @@ $glasses_brand = Db::name('glasses_brand')->where('is_delete',0)->where('user_id
                 if (result.data.length != 0 ){
                     for (var i = 0 ;i < result.data.length;i++){
                         var data = [
-                            result.data[i].brand_name+'—'+
-                            result.data[i].model+'—'+
+                            result.data[i].brand_name+'  '+
+                            result.data[i].model+'  '+
                             result.data[i].color
 
                         ];

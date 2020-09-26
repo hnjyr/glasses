@@ -100,8 +100,8 @@ class SalesOrder extends BaseModel
         $this->startTrans();
         try {
             // 新增管理员记录
-            $data['create_time'] = date('Y-m-d',time());
-            $data['update_time'] = date('Y-m-d',time());
+            $data['create_time'] = strtotime($data['data']['created_time']);
+            $data['update_time'] = $data['create_time'];
             $this->allowField(true)->save($data);
             $this->commit();
             return true;

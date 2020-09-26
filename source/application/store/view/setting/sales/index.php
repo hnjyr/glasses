@@ -184,7 +184,7 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td class="am-text-middle" >
-                                                <span > <?= date("Y-m-d",$order['created_time']) ?></span>
+                                                <span > <?= date("Y-m-d",(int)$order['created_time']) ?></span>
                                             </td>
                                             <td class="am-text-middle" width="300px">
                                                 <div class="tpl-table-black-operation">

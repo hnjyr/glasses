@@ -68,7 +68,29 @@ class Index extends Controller
             $list[$key]['refractive_num'] = $value['refractive_num'];
         }
 
-        return json_encode($list);
+        $newArr = $valArr = array();
+        foreach ($list as $key=>$value) {
+            $valArr[$key] = $value['refractive_num'];
+        }
+        asort($valArr);
+        reset($valArr);
+        foreach($valArr as $key=>$value) {
+            $newArr[$key] = $list[$key];
+        }
+
+
+
+        $keys = implode('', array_keys($newArr));
+        if(is_numeric($keys)){
+            $newArr = array_values($newArr);
+        }
+
+
+
+//        dump($newArr);die();
+
+
+        return json_encode($newArr);
     }
     public  function getmodellist (){
         // 订单列表
@@ -554,6 +576,7 @@ class Index extends Controller
         $data['price'] = $date['price'];
         $data['standard_inventory'] = $date['now_inventory'];
         $data['now_inventory'] = $date['now_inventory'];
+        $data['total_price'] = 0;
         $data['create_time'] = time();
         $dbtype = $date['dbtype'];
         if ($dbtype == 0){
@@ -561,6 +584,7 @@ class Index extends Controller
             $data['refractive_id'] = $date['refractive_id'];
             $data['spherical_lens'] = $date['spherical_lens'];
             $data['cytdnder'] = $date['cytdnder'];
+
             $res = Db::name('specification')
                 ->insert($data);
             $new_brand_id = Db::name('specification')

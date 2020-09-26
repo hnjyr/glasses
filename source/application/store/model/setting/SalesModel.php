@@ -78,7 +78,9 @@ class SalesModel extends BaseModel
             return false;
         }
         $data['user_id'] = $user_id;
-        $data['created_time'] = time();
+//        dump($data['data']['created_time']);die();
+        $data['created_time'] = strtotime($data['data']['created_time']);
+
         $this->startTrans();
         try {
 

@@ -47,7 +47,7 @@ class Sales extends Controller
         $model = new SalesModel;
         $admin_info = Session::get('yoshop_store')['user'];
         $user_info = Db::name('store_user')->where(['store_user_id'=>$admin_info['store_user_id']])->find();
-//        dump($this->postData());die();
+//        dump($this->postData('data'));die();
         // 新增记录
         if ($this->request->isAjax()){
             if ($model->add($this->postData(),$user_info['user_id'])) {

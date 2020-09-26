@@ -201,27 +201,31 @@ class Glasses extends Controller
                 $new_inventory = Db::name('specification')->where('specification_id',$data['right_specification_id'])->find();
                 $inventory = $new_inventory['now_inventory'] - $data['right_frame_num'];
 //                dump($inventory);die;
-                Db::name('specification')->where('specification_id',$data['right_specification_id'])->update(['now_inventory'=>$inventory]);
+                $total_price = $new_inventory['price'] * $data['right_frame_num'];
+                Db::name('specification')->where('specification_id',$data['right_specification_id'])
+                    ->update(['now_inventory'=>$inventory,'total_price'=>$total_price]);
             }
             if ($data['left_specification_id'] != ''){
                 $new_inventory = Db::name('specification')->where('specification_id',$data['left_specification_id'])->find();
                 $inventory = $new_inventory['now_inventory'] - $data['left_frame_num'];
-                Db::name('specification')->where('specification_id',$data['left_specification_id'])->update(['now_inventory'=>$inventory]);
+                $total_price = $new_inventory['price'] * $data['left_frame_num'];
+                Db::name('specification')->where('specification_id',$data['left_specification_id'])
+                    ->update(['now_inventory'=>$inventory,'total_price'=>$total_price]);
             }
             if ($data['glasses_specification_id'] != ''){
                 $new_inventory = Db::name('glasses_specification')->where('specification_id',$data['glasses_specification_id'])->find();
                 $inventory = $new_inventory['now_inventory'] - $data['right_glasses_cloth_num'];
-                Db::name('specification')->where('specification_id',$data['glasses_specification_id'])->update(['now_inventory'=>$inventory]);
+                $total_price = $new_inventory['price'] * $data['right_glasses_cloth_num'];
+                Db::name('specification')->where('specification_id',$data['glasses_specification_id'])
+                    ->update(['now_inventory'=>$inventory,'total_price'=>$total_price]);
             }
-            if ($data['glasses_specification_id'] != ''){
-                $new_inventory = Db::name('glasses_specification')->where('specification_id',$data['glasses_specification_id'])->find();
-                $inventory = $new_inventory['now_inventory'] - $data['right_glasses_cloth_num'];
-                Db::name('glasses_specification')->where('specification_id',$data['glasses_specification_id'])->update(['now_inventory'=>$inventory]);
-            }
+
             if ($data['other_specification_id'] != ''){
                 $new_inventory = Db::name('other_specification')->where('specification_id',$data['other_specification_id'])->find();
                 $inventory = $new_inventory['now_inventory'] - $data['glasses_other_num'];
-                Db::name('other_specification')->where('specification_id',$data['other_specification_id'])->update(['now_inventory'=>$inventory]);
+                $total_price = $new_inventory['price'] * $data['glasses_other_num'];
+                Db::name('other_specification')->where('specification_id',$data['other_specification_id'])
+                    ->update(['now_inventory'=>$inventory,'total_price'=>$total_price]);
             }
 //            Db::name('glasses_specification')->where('')
             if(Db::name('new_order_point')->where('mobile',$data['mobile'])->where('user_id',$data['user_id'])->find()){

@@ -645,7 +645,7 @@
                                 {
                                     name: '净收入',
                                     type: 'line',
-                                    data: <?= $echarts7days['order_total'] ?>
+                                    data: <?= $echarts7days['net_income_price'] ?>
                                 }
                             ]
                         }, true);
@@ -696,7 +696,7 @@
                                 {
                                     name: '净收入',
                                     type: 'line',
-                                    data: <?= $echarts30days['order_total'] ?>
+                                    data: <?= $echarts30days['net_income_price'] ?>
                                 }
                             ]
                         }, true);
@@ -743,7 +743,7 @@
                                 {
                                     name: '净收入',
                                     type: 'line',
-                                    data: <?= $echartsyears['order_total'] ?>
+                                    data: <?= $echartsyears['net_income_price'] ?>
                                 }
                             ]
                         }, true);

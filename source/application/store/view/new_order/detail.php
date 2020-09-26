@@ -253,7 +253,7 @@
 
 
                                     <tr>
-                                        <td>眼睛框</td>
+                                        <td>眼镜框</td>
                                         <td><span class="goods-title"><?= $detail['frame'] ?></td>
                                         <td>个</td>
                                         <td><span class="goods-title"><?= $detail['frame_num'] ?></td>
@@ -262,7 +262,7 @@
 
                                     </tr>
                                     <tr>
-                                        <td>眼睛片</td>
+                                        <td>眼镜片</td>
                                         <td><span class="goods-title"><?= $detail['lens'] ?></td>
                                         <td>副</td>
                                         <td><span class="goods-title"><?= $detail['lens_num'] ?></td>
@@ -270,7 +270,7 @@
 
                                     </tr>
                                     <tr>
-                                        <td>眼睛盒</td>
+                                        <td>眼镜盒</td>
                                         <td></td>
                                         <td>个</td>
                                         <td><span class="goods-title"><?= $detail['glasses_case_num']?></td>

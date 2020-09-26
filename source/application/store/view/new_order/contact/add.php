@@ -210,7 +210,11 @@
                                             <tr>
                                                 <th>商品名称</th>
                                                 <th colspan="6" style="width: 35%">品牌</th>
+<<<<<<< Updated upstream
                                                 <!-- <th>到期时间</th> -->
+=======
+<!--                                                <th>到期时间</th>-->
+>>>>>>> Stashed changes
                                                 <th>数量</th>
                                                 <th>价格</th>
                                             </tr>
@@ -229,10 +233,10 @@
                                                         <button id="contactBtn"  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myContactModal">选规格</button>
                                                     </div></td>
 
-                                                <td width="15%"><div class="am-u-sm-9 am-u-end">
+                                                <!--<td width="15%"><div class="am-u-sm-9 am-u-end">
                                                         <input type="text" id="contact_end_time" class="tpl-form-input" name="contact_end_time"
                                                                value="">
-                                                    </div></td>
+                                                    </div></td>-->
                                                 <td width="15%"><div class="am-u-sm-9 am-u-end">
                                                         <input  id="contact_num" min="0" type="number" class="tpl-form-input" name="contact_num"
                                                                 value="" @change='change' v-model='contact_num'>
@@ -257,10 +261,10 @@
                                                         <button id="left_contactBtn"  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myLeftContactModal">选规格</button>
                                                     </div></td>
 
-                                                <td width="15%"><div class="am-u-sm-9 am-u-end">
+                                                <!--<td width="15%"><div class="am-u-sm-9 am-u-end">
                                                         <input type="text" id="left_contact_end_time" class="tpl-form-input" name="left_contact_end_time"
                                                                value="">
-                                                    </div></td>
+                                                    </div></td>-->
                                                 <td width="15%"><div class="am-u-sm-9 am-u-end">
                                                         <input  id="left_contact_num" min="0" type="number" class="tpl-form-input" name="left_contact_num"
                                                                 value="" v-model='left_contact_num' @change='change'>

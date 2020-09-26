@@ -28,7 +28,7 @@
     <div id="wrapper" class="login-body">
         <div class="login-content">
             <div class="brand">
-                <img alt="logo" class="brand-img" src="assets/store/img/login/logo.png?v=<?/*= $version */?>" style="position: absolute;left: 25%">
+                <img alt="logo" class="brand-img" src="assets/store/img/login/logo.png?v=<?= $version ?>" style="position: absolute;left: 25%">
                 <h2 class="brand-text" style="margin-left: 18%"><?= $setting ?></h2>
             </div>
             <form id="login-form" class="login-form" onsubmit="return false;">

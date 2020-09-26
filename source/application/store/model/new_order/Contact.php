@@ -83,10 +83,54 @@ class Contact extends BaseModel
                 'query' => \request()->request()
             ]);
     }
+    public function getListsBir($query = [],$arr=[])
+    {
+        if (empty($query)){
+            $query['start_time'] = date('Y-m-d',time());
+            $query['end_time'] = date('Y-m-d',strtotime('+ 7 day',time()));
+//            dump($query['end_time']);die();
+            $this->setWhere($query);
+        }
+        !empty($query) && $this->setWhere($query);
+        // 获取数据列表
+        return $this
+            ->alias('contact_order')
+            ->field('contact_order.*,user.shop_name')
+            ->join('user', 'user.user_id = contact_order.user_id')
+            ->where('contact_order.user_id','in',$arr)
+            ->where('contact_order.is_delete', '=', 0)
+            ->order(['contact_order.create_time' => 'desc'])
+            ->paginate(10, false, [
+                'query' => \request()->request()
+            ]);
+    }
     public function getInfoList($query = [],$arr=[])
     {
         // 检索查询条件
 //        dump($query);
+        if (empty($query)){
+            $query['start_time'] = date('Y-m-d',time());
+            $query['end_time'] = date('Y-m-d',strtotime('+ 7 day',time()));
+//            dump($query['end_time']);die();
+            $this->setWhere($query);
+        }
+        !empty($query) && $this->setWhere($query);
+        // 获取数据列表
+        return $this
+            ->alias('contact_order')
+            ->field('contact_order.*,user.shop_name,sum(contact_order.pay_total) as pay_contact_total,sum(contact_order.point) as contact_total_point')
+            ->join('user', 'user.user_id = contact_order.user_id')
+            ->where('contact_order.user_id','in',$arr)
+            ->where('contact_order.is_delete', '=', 0)
+            ->group('contact_order.user_name')
+            ->order(['contact_order.create_time' => 'desc'])
+            ->paginate(10, false, [
+                'query' => \request()->request()
+            ]);
+    }
+    public function getInfoListss($query = [],$arr=[])
+    {
+
         !empty($query) && $this->setWhere($query);
         // 获取数据列表
         return $this
@@ -104,7 +148,12 @@ class Contact extends BaseModel
     public function getInfoLists( $query = [],$arr=[])
     {
         // 检索查询条件
-//        dump($query);
+        if (empty($query)){
+            $query['start_time'] = date('Y-m-d',time());
+            $query['end_time'] = date('Y-m-d',strtotime('+ 7 day',time()));
+//            dump($query['end_time']);die();
+            $this->setWhere($query);
+        }
         !empty($query) && $this->setWhere($query);
         // 获取数据列表
         return $this

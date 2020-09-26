@@ -63,16 +63,36 @@ class Glasses extends BaseModel
                 'query' => \request()->request()
             ]);
     }
+    public function getInfoListss($query = [],$arr=[])
+    {
+        !empty($query) && $this->setWhere($query);
+        return $this
+            ->alias('glasses_order')
+            ->field('glasses_order.*,user.shop_name,sum(glasses_order.pay_total) as pay_glasses_total,sum(glasses_order.point) as glasses_total_point')
+            ->join('user', 'user.user_id = glasses_order.user_id')
+            ->where('glasses_order.user_id','in',$arr)
+            ->where('glasses_order.is_delete', '=', 0)
+            ->group('glasses_order.user_name')
+            ->order(['glasses_order.create_time' => 'desc'])
+            ->paginate(10, false, [
+                'query' => \request()->request()
+            ]);
+    }
     public function getInfoLists( $query = [],$arr=[])
     {
         // 检索查询条件
+        if (empty($query)){
+            $query['start_time'] = date('Y-m-d',time());
+            $query['end_time'] = date('Y-m-d',strtotime('+ 7 day',time()));
+//            dump($query['end_time']);die();
+            $this->setWhere($query);
+        }
         !empty($query) && $this->setWhere($query);
         // 获取数据列表
         return $this
             ->alias('glasses_order')
-            ->field('glasses_order.*,user.shop_name ,new_order_point.point as glasses_total_point,sum(glasses_order.pay_total) as pay_glasses_total')
+            ->field('glasses_order.*,user.shop_name,sum(glasses_order.pay_total) as pay_glasses_total,sum(glasses_order.point) as glasses_total_point')
             ->join('user', 'user.user_id = glasses_order.user_id')
-            ->join('new_order_point', 'new_order_point.user_id = glasses_order.user_id')
             ->where('glasses_order.user_id','in',$arr)
             ->where('glasses_order.is_delete', '=', 0)
             ->group('glasses_order.user_name')
@@ -104,6 +124,29 @@ class Glasses extends BaseModel
         // 检索查询条件
 
         !empty($query) && $this->setWhere2($query);
+        // 获取数据列表
+        return $this
+            ->alias('glasses_order')
+            ->field('glasses_order.*,user.shop_name')
+            ->join('user', 'user.user_id = glasses_order.user_id')
+            ->where('glasses_order.user_id','in',$arr)
+            ->where('glasses_order.is_delete', '=', 0)
+            ->order(['glasses_order.create_time' => 'desc'])
+            ->paginate(10, false, [
+                'query' => \request()->request()
+            ]);
+    }
+    public function getListsBir($query = [],$arr=[])
+    {
+        // 检索查询条件
+        if (empty($query)){
+            $query['start_time'] = date('Y-m-d',time());
+            $query['end_time'] = date('Y-m-d',strtotime('+ 7 day',time()));
+//            dump($query['end_time']);die();
+            $this->setWhere($query);
+        }
+        !empty($query) && $this->setWhere($query);
+
         // 获取数据列表
         return $this
             ->alias('glasses_order')

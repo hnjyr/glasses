@@ -227,25 +227,25 @@ class ContactModel extends BaseModel
             $this->where('user.shop_name', 'like', '%' . trim($query['shopName']) . '%');
         }
         if (isset($query['search']) && !empty($query['search']) && !(isset($query['shopName']) && !empty($query['shopName']))) {
-            $this->where('order_num|user_name|order.mobile', 'like', '%' . trim($query['search']) . '%');
+            $this->where('contact_no|user_name|contact_order.mobile', 'like', '%' . trim($query['search']) . '%');
         }
         if (isset($query['shopName']) && !empty($query['shopName']) && isset($query['search']) && !empty($query['search'])){
-            $this->where('user.shop_name','like','%'.trim($query['shopName']).'%')->where('order_num|user_name|order.mobile', 'like', '%' . trim($query['search']) . '%');;
+            $this->where('user.shop_name','like','%'.trim($query['shopName']).'%')->where('contact_no|user_name|contact_order.mobile', 'like', '%' . trim($query['search']) . '%');;
         }
         if (isset($query['start_time']) && !empty($query['start_time'])) {
-            $this->where('order.create_time', '>=', strtotime($query['start_time']));
+            $this->where('contact_order.create_time', '>=', strtotime($query['start_time']));
         }
         if (isset($query['end_time']) && !empty($query['end_time'])) {
-            $this->where('order.create_time', '<', strtotime($query['end_time']) + 86400);
+            $this->where('contact_order.create_time', '<', strtotime($query['end_time']) + 86400);
         }
         if (isset($query['shop_name']) && !empty($query['shop_name'])) {
             $this->where('user.shop_name', 'like', '%'.$query['shop_name'] .'%');
         }
         if (isset($query['user_id']) && !empty($query['user_id'])) {
-            $this->where('order.user_id', 'in',$query['user_id']);
+            $this->where('contact_order.user_id', 'in',$query['user_id']);
         }
         if (isset($query['s_time']) && !empty($query['e_time'])) {
-            $this->where('order.create_time', 'between',[strtotime($query['s_time']),strtotime($query['e_time'])+86400]);
+            $this->where('contact_order.create_time', 'between',[strtotime($query['s_time']),strtotime($query['e_time'])+86400]);
         }
         // 用户id
 //        if (isset($query['user_arr']) && !empty($query['user_arr'])) {

@@ -762,7 +762,94 @@ class NewOrder extends NewOrderModel
         return $glassesOrderNum + $contactOrderNum + $otherOrderNum;
 
     }
+    public function getIncomeOrderTotalPrices($startDate = null, $endDate = null,$arr=[])
+    {
+        if (!is_null($startDate) && !is_null($endDate)) {
 
+            $glassesOrderNum = Db::name('glasses_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $contactOrderNum = Db::name('contact_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $otherOrderNum = Db::name('other_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $glassesSpcNum = Db::name('glasses_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $contactSpcNum = Db::name('contact_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $otherSpcNum = Db::name('other_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $spcNum = Db::name('specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+
+        }
+        if(!empty($arr)){
+            $glassesOrderNum = Db::name('glasses_order')
+                ->where('user_id', 'in', $arr)
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $contactOrderNum = Db::name('contact_order')
+                ->where('user_id', 'in', $arr)
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $otherOrderNum = Db::name('other_order')
+                ->where('user_id', 'in', $arr)
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $glassesSpcNum = Db::name('glasses_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $contactSpcNum = Db::name('contact_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $otherSpcNum = Db::name('other_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $spcNum = Db::name('specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate))
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+        }
+        return $glassesOrderNum + $contactOrderNum + $otherOrderNum - ($spcNum + $otherSpcNum + $contactSpcNum + $glassesSpcNum);
+
+    }
 
     /**
      * 获取某天的总销售额
@@ -830,7 +917,135 @@ class NewOrder extends NewOrderModel
         }
         return $glassesOrderNum + $contactOrderNum + $otherOrderNum;
     }
+    public function getIncomeOrderTotalPrice($startDate = null, $endDate = null,$arr=[])
+    {
 
+
+//        dump($arr);die();
+        if (!is_null($startDate) && !is_null($endDate) && is_null($arr)) {
+
+            $salesOrderNum = Db::name('sales_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('price');
+            $glassesOrderNum = Db::name('glasses_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $contactOrderNum = Db::name('contact_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $otherOrderNum = Db::name('other_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $glassesSpcNum = Db::name('glasses_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $contactSpcNum = Db::name('contact_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $otherSpcNum = Db::name('other_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $spcNum = Db::name('specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+        }
+        if(!empty($arr) && is_null($startDate) && is_null($endDate)){
+            $salesOrderNum = Db::name('sales_order')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('price');
+            $glassesOrderNum = Db::name('glasses_order')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $contactOrderNum = Db::name('contact_order')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $otherOrderNum = Db::name('other_order')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $glassesSpcNum = Db::name('glasses_specification')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $contactSpcNum = Db::name('contact_specification')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $otherSpcNum = Db::name('other_specification')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $spcNum = Db::name('specification')
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+        }
+        if (!is_null($startDate) && !is_null($endDate) && !is_null($arr)) {
+
+            $glassesOrderNum = Db::name('glasses_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $contactOrderNum = Db::name('contact_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $otherOrderNum = Db::name('other_order')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('pay_total');
+            $glassesSpcNum = Db::name('glasses_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $contactSpcNum = Db::name('contact_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $otherSpcNum = Db::name('other_specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+            $spcNum = Db::name('specification')
+                ->where('create_time', '>=', strtotime($startDate))
+                ->where('create_time', '<', strtotime($endDate) + 86400)
+                ->where('user_id', 'in', $arr)
+                ->where('is_delete', '=', 0)
+                ->sum('total_price');
+        }
+        return $glassesOrderNum + $contactOrderNum + $otherOrderNum - ($spcNum + $otherSpcNum + $contactSpcNum + $glassesSpcNum);
+    }
     /**
      * 获取某天的下单用户数
      * @param $day

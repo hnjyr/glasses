@@ -43,6 +43,7 @@ class Trade7days extends BasicsService
             'order_total_price' => helper::jsonEncode($this->getOrderTotalPriceByDate($lately7days)),
             'week_order_total' => array_sum($this->getOrderTotalByDate($lately7days)),
             'week_order_total_price' => array_sum($this->getOrderTotalPriceByDate($lately7days)),
+            'net_income_price' =>helper::jsonEncode($this->getIncomeOrderTotalPriceByDate($lately7days)),
         ];
     }
 
@@ -61,6 +62,7 @@ class Trade7days extends BasicsService
             'order_total_price' => helper::jsonEncode($this->getOrderTotalPriceByDate($lately30days)),
             'month_order_total' => array_sum($this->getOrderTotalByDate($lately30days)),
             'month_order_total_price' => array_sum($this->getOrderTotalPriceByDate($lately30days)),
+            'net_income_price' =>helper::jsonEncode($this->getIncomeOrderTotalPriceByDate($lately30days)),
         ];
     }
 
@@ -80,7 +82,8 @@ class Trade7days extends BasicsService
             'order_total' => helper::jsonEncode($this->getOrderTotalByMonth($latelyMonths)),
             'order_total_price' => helper::jsonEncode($this->getOrderTotalPriceByMonth($latelyMonths)),
             'year_order_total' => array_sum($this->getOrderTotalByMonth($latelyMonths)),
-            'year_order_total_price' => array_sum($this->getOrderTotalPriceByMonth($latelyMonths))
+            'year_order_total_price' => array_sum($this->getOrderTotalPriceByMonth($latelyMonths)),
+            'net_income_price' =>helper::jsonEncode($this->getIncomeOrderTotalPriceByMonth($latelyMonths)),
         ];
     }
 
@@ -299,6 +302,21 @@ class Trade7days extends BasicsService
         }
 
     }
+    private function getIncomeOrderTotalPrice($day = null)
+    {
+        $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
+        if ($admin_info['is_super'] == 1){
+            return helper::number2($this->OrderModel->getIncomeOrderTotalPrice($day, $day));
+        }else{
+            $this_user = Db::name('user')->where(['pid'=>$admin_info['user_id']])->column('user_id');
+            if($this_user){
+                return helper::number2($this->OrderModel->getIncomeOrderTotalPrice($day, $day,$this_user));
+            }else{
+                return helper::number2($this->OrderModel->getIncomeOrderTotalPrice($day, $day,$admin_info['user_id']));
+            }
+        }
+
+    }
 
     /**
      * 获取某天的总销售额
@@ -320,6 +338,21 @@ class Trade7days extends BasicsService
         }
 
     }
+    private function getIncomeOrderTotalPrices($stratday, $endday)
+    {
+        $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
+        if ($admin_info['is_super'] == 1){
+            return helper::number2($this->OrderModel->getIncomeOrderTotalPrices($stratday, $endday));
+        }else{
+            $this_user = Db::name('user')->where(['pid'=>$admin_info['user_id']])->column('user_id');
+            if($this_user){
+                return helper::number2($this->OrderModel->getIncomeOrderTotalPrices($stratday, $endday,$this_user));
+            }else{
+                return helper::number2($this->OrderModel->getIncomeOrderTotalPrices($stratday, $endday,$admin_info['user_id']));
+            }
+        }
+
+    }
 
     /**
      * 获取订单总量 (指定日期)
@@ -332,6 +365,16 @@ class Trade7days extends BasicsService
         foreach ($days as $day) {
             $data[] = $this->getOrderTotalPrice($day);
         }
+        return $data;
+    }
+    private function getIncomeOrderTotalPriceByDate($days)
+    {
+        $data = [];
+        foreach ($days as $day) {
+            $data[] = $this->getIncomeOrderTotalPrice($day);
+        }
+
+//        dump($data);die();
         return $data;
     }
 
@@ -352,6 +395,22 @@ class Trade7days extends BasicsService
         $data = [];
         for ($i = 0;$i<count($days)-1;$i++){
                 $data[] = $this->getOrderTotalPrices($days[$i],$days[$i+1]);
+        }
+        return $data;
+
+    }
+    private function getIncomeOrderTotalPriceByMonth($days,$user_id=null)
+    {
+        /*$data = [];
+        foreach ($days as $day) {
+            $data[] = $this->getOrderTotalPrices($day);
+        }
+        return $data;*/
+
+        $arr = [$user_id];
+        $data = [];
+        for ($i = 0;$i<count($days)-1;$i++){
+            $data[] = $this->getIncomeOrderTotalPrices($days[$i],$days[$i+1]);
         }
         return $data;
 

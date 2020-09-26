@@ -141,26 +141,26 @@
                                     <div class="am-u-sm-12 am-u-md-3">
                                         <div class="am-form-group">
                                             <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                    <?php if (checkPrivilege('order.index/export')): ?>
+                                                <!--<div class="am-btn-group am-btn-group-xs">
+                                                    <?php /*if (checkPrivilege('order.index/export')): */?>
                                                         <a class="j-export am-btn am-btn-danger am-radius"
                                                            href="javascript:void(0);">
                                                             <i class="iconfont icon-daochu am-margin-right-xs"></i>订单导出
                                                         </a>
-                                                    <?php endif; ?>
+                                                    <?php /*endif; */?>
                                                     <div class="am-u-sm-12 am-u-md-3" style="display: none">
                                                         <div class="am-form-group">
-                                                            <?php if($admin_info['is_super'] != 1): ?>
+                                                            <?php /*if($admin_info['is_super'] != 1): */?>
                                                                 <div class="am-btn-group am-btn-group-xs">
                                                                     <a class="am-btn am-btn-default am-btn-success"
-                                                                       href="<?= url('order.index/add') ?>">
+                                                                       href="<?/*= url('order.index/add') */?>">
                                                                         <span class="am-icon-plus"></span> 开单啦
                                                                     </a>
                                                                 </div>
-                                                            <?php endif; ?>
+                                                            <?php /*endif; */?>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -248,6 +248,9 @@
                                                 <?php if ($order['right_frame_num'] != 0): ?>
                                                     <span >镜片:(<?= $order['right_frame'] ?>)*<?= $order['right_frame_num'] ?> </span>
                                                 <?php  endif;?>
+                                                <?php if ($order['right_frame_num'] == 0): ?>
+                                                    暂无数据
+                                                <?php  endif;?>
 
                                             </td>
                                             <td rowspan="2">
@@ -262,6 +265,10 @@
                                                 <?php  endif;?>
                                                 <?php if ($order['glasses_other_num'] != 0): ?>
                                                     <br><span >镜布:(<?= $order['other'] ?>)*<?= $order['glasses_other_num'] ?> </span>
+                                                <?php  endif;?>
+                                                <?php if ($order['right_glasses_cloth_num'] == 0 && $order['glasses_les_num'] == 0
+                                                && $order['glasses_case_num'] == 0 && $order['glasses_other_num'] == 0): ?>
+                                                暂无数据
                                                 <?php  endif;?>
                                             </td>
                                             <!--<td class="am-text-middle" >
@@ -308,6 +315,9 @@
                                                 <?php if ($order['left_frame_num'] != 0): ?>
                                                     <span >镜片:(<?= $order['left_frame'] ?>)*<?= $order['left_frame_num'] ?> </span>
                                                 <?php  endif;?>
+                                                <?php if ($order['left_frame_num'] == 0): ?>
+                                                    暂无数据
+                                                <?php  endif;?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -337,6 +347,9 @@
                                                 <?php if ($order['contact_num'] != 0): ?>
                                                     <span >隐形眼镜:(<?= $order['contact'] ?>)*<?= $order['contact_num'] ?> </span>
                                                 <?php  endif;?>
+                                                <?php if ($order['contact_num'] == 0): ?>
+                                                    暂无数据
+                                                <?php  endif;?>
 
                                             </td>
                                             <td rowspan="2">
@@ -345,6 +358,9 @@
                                                 <?php  endif;?>
                                                 <?php if ($order['contact_les_num'] != 0): ?>
                                                     <br><span >隐形镜盒:(<?= $order['contact_les'] ?>)*<?= $order['contact_les_num'] ?> </span>
+                                                <?php  endif;?>
+                                                <?php if ($order['solution_num'] == 0 && $order['contact_les_num'] == 0): ?>
+                                                    暂无数据
                                                 <?php  endif;?>
                                             </td>
                                             <!--<td class="am-text-middle" >
@@ -390,6 +406,9 @@
                                             <td class="am-text-middle" style="text-align: left" >
                                                 <?php if ($order['left_contact_num'] != 0): ?>
                                                     <span >隐形眼镜:(<?= $order['left_contact'] ?>)*<?= $order['left_contact_num'] ?> </span>
+                                                <?php  endif;?>
+                                                <?php if ($order['left_contact_num'] == 0): ?>
+                                                    暂无数据
                                                 <?php  endif;?>
                                             </td>
                                         </tr>

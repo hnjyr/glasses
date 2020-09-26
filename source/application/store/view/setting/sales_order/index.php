@@ -170,7 +170,7 @@
                                         <th>金额</th>
                                         <!--<th>月消费</th>
                                         <th>年消费</th>-->
-                                        <th>总消费</th>
+<!--                                        <th>总消费</th>-->
                                         <th>消费时间</th>
 <!--                                        <th>操作</th>-->
                                     </tr>
@@ -204,11 +204,11 @@
                                             <td class="am-text-middle" >
                                                 <span > <?/*= $data[$key]['years_total'] */?></span>
                                             </td>-->
+                                            <!--<td class="am-text-middle" >
+                                                <span > <?/*= $order['total'] */?></span>
+                                            </td>-->
                                             <td class="am-text-middle" >
-                                                <span > <?= $order['total'] ?></span>
-                                            </td>
-                                            <td class="am-text-middle" >
-                                                <span > <?= $order['create_time'] ?></span>
+                                                <span > <?= date("Y-m-d",(int)$order['create_time']) ?></span>
                                             </td>
                                             <!--<td class="am-text-middle" >
                                                 <div class="tpl-table-black-operation">

@@ -177,12 +177,16 @@ class Contact extends Controller
             if ($data['right_contact_specification_id'] != ''){
                 $new_inventory = Db::name('contact_specification')->where('specification_id',$data['right_contact_specification_id'])->find();
                 $inventory = $new_inventory['now_inventory'] - $data['contact_num'];
-                Db::name('contact_specification')->where('specification_id',$data['right_contact_specification_id'])->update(['now_inventory'=>$inventory]);
+                $total_price = $new_inventory['price'] * $data['contact_num'];
+                Db::name('contact_specification')->where('specification_id',$data['right_contact_specification_id'])
+                    ->update(['now_inventory'=>$inventory,'total_price'=>$total_price]);
             }
             if ($data['left_contact_specification_id'] != ''){
                 $new_inventory = Db::name('contact_specification')->where('specification_id',$data['left_contact_specification_id'])->find();
                 $inventory = $new_inventory['now_inventory'] - $data['left_contact_num'];
-                Db::name('contact_specification')->where('specification_id',$data['left_contact_specification_id'])->update(['now_inventory'=>$inventory]);
+                $total_price = $new_inventory['price'] * $data['left_contact_num'];
+                Db::name('contact_specification')->where('specification_id',$data['left_contact_specification_id'])
+                    ->update(['now_inventory'=>$inventory,'total_price'=>$total_price]);
             }
             if(Db::name('new_order_point')->where('mobile',$data['mobile'])->where('user_id',$data['user_id'])->find()){
                 Db::name('new_order_point')->where('mobile',$data['mobile'])->where('user_id',$data['user_id'])->setInc('point',$data['point']);

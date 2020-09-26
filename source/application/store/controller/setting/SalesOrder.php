@@ -205,7 +205,7 @@ class SalesOrder extends Controller
             );
         }
         $data = $this->postData();
-//        dump($data);
+
         $admin_info = Session::get('yoshop_store')['user'];
         $user_info = Db::name('store_user')->where(['store_user_id'=>$admin_info['store_user_id']])->find();
         $sale_info = Db::name('sales')->where('sales_name',$data['buy_sales_name'])->find();

@@ -4,6 +4,8 @@ namespace app\store\controller\customer;
 
 use app\store\model\birthday\IndexModel as IndexModel;
 use app\store\controller\Controller;
+use app\store\model\new_order\Glasses as GlassesModel;
+use app\store\model\new_order\Contact as ContactModel;
 use app\store\model\Express as ExpressModel;
 use app\store\model\Store as StoreModel;
 use app\store\model\store\shop\Clerk as ShopClerkModel;
@@ -94,23 +96,105 @@ class Birthday extends Controller
         // 订单列表
         $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
         if ($admin_info['is_super'] == 1){
-            $model = new IndexModel;
-            $list = $model->getList($dataType, $this->request->param());
-            // 自提门店列表
-            $this->assign('admin_info',$admin_info);
-            return $this->fetch('index', compact('title', 'dataType', 'list', 'shopList'));
-        }else{
-            $model = new IndexModel;
-            $this_user = Db::name('user')->where(['pid'=>$admin_info['user_id']])->column('user_id');
-            if(!empty($this_user)){
-                array_push($this_user,$admin_info['user_id']);
-                $list = $model->getLists($this->request->param(),$this_user);
-            }else{
-                $list = $model->getLists($this->request->param(),$admin_info['user_id']);
+            $glassesModel = new GlassesModel;
+            $contactModel = new ContactModel;
+
+            $glassesList = $glassesModel->getInfoLists($dataType, $this->request->param());
+            $contactList = $contactModel->getInfoLists($dataType, $this->request->param());
+            foreach ($glassesList as  $key=>$value){
+                $arr[$key]['user_name'] = $value['user_name'];
+                $arr[$key]['sex'] = $value['sex'];
+                $arr[$key]['years'] = $value['years'];
+                $arr[$key]['birthday'] = $value['birthday'];
+                $arr[$key]['mobile'] = $value['mobile'];
+                $arr[$key]['glasses_total_point'] = $value['glasses_total_point'];
+                $arr[$key]['sales'] = $value['sales'];
+            }
+            $cout = isset($arr)?count($arr):0;
+
+            if ($cout!=0){
+                foreach ($contactList as  $key=>$value){
+                    $arr[$key+$cout]['user_name'] = $value['user_name'];
+                    $arr[$key+$cout]['sex'] = $value['sex'];
+                    $arr[$key+$cout]['years'] = $value['years'];
+                    $arr[$key+$cout]['birthday'] = $value['birthday'];
+                    $arr[$key+$cout]['mobile'] = $value['mobile'];
+                    $arr[$key+$cout]['contact_total_point'] = $value['contact_total_point'];
+                    $arr[$key+$cout]['sales'] = $value['sales'];
+                }
+
+                $new_arr = $arr;
+
+                $tmp_arr = array();
+                foreach($new_arr as $k => $v)
+                {
+                    if(in_array($v['user_name'], $tmp_arr))   //搜索$v[$key]是否在$tmp_arr数组中存在，若存在返回true
+                    {
+                        unset($new_arr[$k]); //销毁一个变量  如果$tmp_arr中已存在相同的值就删除该值
+                    }
+                    else {
+                        $tmp_arr[$k] = $v['user_name'];  //将不同的值放在该数组中保存
+                    }
+                }
+
             }
             // 自提门店列表
             $this->assign('admin_info',$admin_info);
-            return $this->fetch('index', compact('title', 'dataType', 'list', 'shopList'));
+            return $this->fetch('index', compact('title', 'dataType', 'glassesList', 'contactList','new_arr'));
+        }else{
+            $glassesModel = new GlassesModel;
+            $contactModel = new ContactModel;
+            $this_user = Db::name('user')->where(['pid'=>$admin_info['user_id']])->column('user_id');
+            if(!empty($this_user)){
+                array_push($this_user,$admin_info['user_id']);
+                $glassesList = $glassesModel->getInfoLists($this->request->param(),$this_user);
+                $contactList = $contactModel->getInfoLists($this->request->param(),$this_user);
+
+            }else{
+                $glassesList = $glassesModel->getInfoLists($this->request->param(),$admin_info['user_id']);
+                $contactList = $contactModel->getInfoLists($this->request->param(),$admin_info['user_id']);
+
+            }
+            foreach ($glassesList as  $key=>$value){
+                $arr[$key]['user_name'] = $value['user_name'];
+                $arr[$key]['sex'] = $value['sex'];
+                $arr[$key]['years'] = $value['years'];
+                $arr[$key]['birthday'] = $value['birthday'];
+                $arr[$key]['mobile'] = $value['mobile'];
+                $arr[$key]['glasses_total_point'] = $value['glasses_total_point'];
+                $arr[$key]['sales'] = $value['sales'];
+            }
+            $cout = isset($arr)?count($arr):0;
+
+            if ($cout!=0){
+                foreach ($contactList as  $key=>$value){
+                    $arr[$key+$cout]['user_name'] = $value['user_name'];
+                    $arr[$key+$cout]['sex'] = $value['sex'];
+                    $arr[$key+$cout]['years'] = $value['years'];
+                    $arr[$key+$cout]['birthday'] = $value['birthday'];
+                    $arr[$key+$cout]['mobile'] = $value['mobile'];
+                    $arr[$key+$cout]['contact_total_point'] = $value['contact_total_point'];
+                    $arr[$key+$cout]['sales'] = $value['sales'];
+                }
+
+                $new_arr = $arr;
+
+                $tmp_arr = array();
+                foreach($new_arr as $k => $v)
+                {
+                    if(in_array($v['user_name'], $tmp_arr))   //搜索$v[$key]是否在$tmp_arr数组中存在，若存在返回true
+                    {
+                        unset($new_arr[$k]); //销毁一个变量  如果$tmp_arr中已存在相同的值就删除该值
+                    }
+                    else {
+                        $tmp_arr[$k] = $v['user_name'];  //将不同的值放在该数组中保存
+                    }
+                }
+
+            }
+            // 自提门店列表
+            $this->assign('admin_info',$admin_info);
+            return $this->fetch('index', compact('title', 'dataType', 'glassesList', 'contactList','new_arr'));
         }
 
     }

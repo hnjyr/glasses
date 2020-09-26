@@ -110,7 +110,13 @@ class User extends Controller
             if ($model->renew($this->postData('user'))) {
                 if($model['user_id'] != 0 ){
                         Db::name('user')->where(['user_id'=>$model['user_id']])->update(
-                        ['password'=>yoshop_hash($this->postData('user')['password']),'pwd'=>$this->postData('user')['password']]
+                        [
+                            /*'username' => $this->postData('user')['user_name'],
+                            'mobile' => $this->postData('user')['user_name'],*/
+                            'password'=>yoshop_hash($this->postData('user')['password']),
+                            'pwd'=>$this->postData('user')['password'],
+
+                        ]
                     );
                 }
                 return $this->renderSuccess('更新成功');

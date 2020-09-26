@@ -4,8 +4,8 @@
 $config = [
     'host' => '47.92.35.59',
     'database' => 'newglasses',
-    'username' => 'newglasses',
-    'password' => 'd84kGezpGeeXcNE4',
+    'username' => 'root',
+    'password' => 'root',
     'port' => '3306',
     'charset' => 'utf8',
 ];

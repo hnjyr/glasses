@@ -67,12 +67,12 @@ class IndexModel extends NewOrderModel
 //        dump($query);die();
         // 获取数据列表
        return $this
-            ->alias('order')
-            ->field('order.*,user.shop_name')
-            ->join('user', 'user.user_id = order.user_id')
-            ->where('order.user_id','in',$arr)
-            ->where('order.is_delete', '=', 0)
-            ->order(['order.create_time' => 'desc'])
+            ->alias('glasses_order')
+            ->field('glasses_order.*,user.shop_name')
+            ->join('user', 'user.user_id = glasses_order.user_id')
+            ->where('glasses_order.user_id','in',$arr)
+            ->where('glasses_order.is_delete', '=', 0)
+            ->order(['glasses_order.create_time' => 'desc'])
             ->paginate(10, false, [
                 'query' => \request()->request()
             ]);

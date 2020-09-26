@@ -66,7 +66,7 @@ class IndexModel extends BaseModel
                 ->where('brand.user_id','in',$arr)
                 ->where('refractive.brand_id',$brand_id)
                 ->where('refractive.is_delete',0)
-                ->order(['refractive.create_time' => 'desc'])
+                ->order(['refractive.refractive_num' => 'desc'])
                 ->paginate(10, false, [
                     'query' => \request()->request()
                 ]);

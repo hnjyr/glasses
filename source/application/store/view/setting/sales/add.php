@@ -159,6 +159,15 @@
                                         </div>
 
 
+
+                                    </div>
+                                    <div class="am-form-group sales">
+                                        <label class="am-u-sm-3 am-form-label form-require"> 入职时间 </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" id="test1" class="tpl-form-input" name="data[created_time]"
+                                                   value="<?= $data['created_time'] ?>"  placeholder="请选择日期，如2020-01-01">
+                                        </div>
+
                                     </div>
                                     <div class="am-form-group sales">
                                         <div class="am-u-sm-9 am-u-sm-push-3 am-margin-top-lg">
@@ -230,6 +239,22 @@
     <!-- 内容区域 end -->
 
 </div>
+<script src="assets/layui/layui.js"></script>
+<link rel="stylesheet" href="assets/layui/css/layui.css">
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //常规用法
+        laydate.render({
+            elem: '#test1',
+            trigger:'click'
+        });
+
+
+
+    });
+</script>
 <script src="assets/common/plugins/layer/layer.js"></script>
 <script src="assets/common/js/jquery.form.min.js"></script>
 <script src="assets/common/js/amazeui.min.js"></script>

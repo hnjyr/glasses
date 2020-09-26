@@ -245,6 +245,9 @@
                                                 <?php if ($order['right_frame_num'] != 0): ?>
                                                     <span >镜片:(<?= $order['right_frame'] ?>)*<?= $order['right_frame_num'] ?> </span>
                                                 <?php  endif;?>
+                                                <?php if ($order['right_frame_num'] == 0): ?>
+                                                    暂无数据
+                                                <?php  endif;?>
 
                                             </td>
                                             <td rowspan="2">
@@ -259,6 +262,10 @@
                                                 <?php  endif;?>
                                                 <?php if ($order['glasses_other_num'] != 0): ?>
                                                     <br><span >镜布:(<?= $order['other'] ?>)*<?= $order['glasses_other_num'] ?> </span>
+                                                <?php  endif;?>
+                                                <?php if ($order['right_glasses_cloth_num'] == 0 && $order['glasses_les_num'] == 0
+                                                    && $order['glasses_case_num'] == 0 && $order['glasses_other_num'] == 0): ?>
+                                                    暂无数据
                                                 <?php  endif;?>
                                             </td>
                                            <!-- <td class="am-text-middle" rowspan="2">
@@ -301,6 +308,9 @@
                                                 <?php if ($order['left_frame_num'] != 0): ?>
                                                     <span >镜片:(<?= $order['left_frame'] ?>)*<?= $order['left_frame_num'] ?> </span>
                                                 <?php  endif;?>
+                                                <?php if ($order['left_frame_num'] == 0): ?>
+                                                    暂无数据
+                                                <?php  endif;?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -326,6 +336,9 @@
                                                 <?php if ($order['contact_num'] != 0): ?>
                                                     <span >隐形眼镜:(<?= $order['contact'] ?>)*<?= $order['contact_num'] ?> </span>
                                                 <?php  endif;?>
+                                                <?php if ($order['contact_num'] == 0): ?>
+                                                    暂无数据
+                                                <?php  endif;?>
 
                                             </td>
                                             <td rowspan="2">
@@ -334,6 +347,9 @@
                                                 <?php  endif;?>
                                                 <?php if ($order['contact_les_num'] != 0): ?>
                                                     <br><span >隐形镜盒:(<?= $order['contact_les'] ?>)*<?= $order['contact_les_num'] ?> </span>
+                                                <?php  endif;?>
+                                                <?php if ($order['solution_num'] == 0 && $order['contact_les_num'] == 0): ?>
+                                                    暂无数据
                                                 <?php  endif;?>
                                             </td>
                                            <!-- <td class="am-text-middle" rowspan="2">
@@ -375,6 +391,9 @@
                                             <td class="am-text-middle" style="text-align: left" >
                                                 <?php if ($order['left_contact_num'] != 0): ?>
                                                     <span >隐形眼镜:(<?= $order['left_contact'] ?>)*<?= $order['left_contact_num'] ?> </span>
+                                                <?php  endif;?>
+                                                <?php if ($order['left_contact_num'] == 0): ?>
+                                                    暂无数据
                                                 <?php  endif;?>
                                             </td>
                                         </tr>

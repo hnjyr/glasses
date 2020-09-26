@@ -102,8 +102,9 @@ class Customer extends Controller
             $glassesModel = new GlassesModel;
             $contactModel = new ContactModel;
             $otherModel = new OtherModel;
-            $glassesList = $glassesModel->getInfoList($dataType, $this->request->param());
-            $contactList = $contactModel->getInfoList($dataType, $this->request->param());
+            $glassesList = $glassesModel->getInfoLists($dataType, $this->request->param());
+            $contactList = $contactModel->getInfoLists($dataType, $this->request->param());
+//            dump($glassesList);die();
             $otherList = $otherModel->getInfoList($dataType, $this->request->param());
             foreach ($glassesList as  $key=>$value){
                 $arr[$key]['user_name'] = $value['user_name'];
@@ -155,15 +156,16 @@ class Customer extends Controller
                 $contactModel = new ContactModel;
                 $otherModel = new OtherModel;
                 array_push($this_user,$admin_info['user_id']);
-                $glassesList = $glassesModel->getInfoLists($this->request->param(),$this_user);
-                $contactList = $contactModel->getInfoList($this->request->param(),$this_user);
+                $glassesList = $glassesModel->getInfoListss($this->request->param(),$this_user);
+                $contactList = $contactModel->getInfoListss($this->request->param(),$this_user);
             }else{
                 $glassesModel = new GlassesModel;
                 $contactModel = new ContactModel;
                 $otherModel = new OtherModel;
-                $glassesList = $glassesModel->getInfoLists($this->request->param(),$admin_info['user_id']);
-                $contactList = $contactModel->getInfoLists($this->request->param(),$admin_info['user_id']);
+                $glassesList = $glassesModel->getInfoListss($this->request->param(),$admin_info['user_id']);
+                $contactList = $contactModel->getInfoListss($this->request->param(),$admin_info['user_id']);
             }
+//            dump($glassesList);die();
             foreach ($glassesList as  $key=>$value){
                 $arr[$key]['user_name'] = $value['user_name'];
                 $arr[$key]['sex'] = $value['sex'];
@@ -206,7 +208,7 @@ class Customer extends Controller
 //            $arr = array_unique($arr);
 
 
-//            dump($new_arr);die();
+
 
             // 自提门店列表
             $this->assign('admin_info',$admin_info);

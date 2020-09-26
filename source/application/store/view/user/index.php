@@ -305,7 +305,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label" style="width: 100px">网址&emsp;</label>
                     <div class="layui-input-block">
-                        <span>http://www.glasses.com/index.php?s=/store/passport/login</span>
+                        <span>http://<?= $_SERVER['HTTP_HOST'] ?>/index.php?s=/store/passport/login</span>
                     </div>
                 </div>
             </form>

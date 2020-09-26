@@ -217,14 +217,13 @@
                                     </thead>
                                     <tbody>
                                     <?php $colspan = 12; ?>
-                                    <?php if (!$list->isEmpty()): foreach ($list as $order): ?>
+                                    <?php if (!is_null($new_arr)): foreach ($new_arr as $order): ?>
                                         <tr>
                                             <!--<td class="am-text-middle am-text-center" >
                                                 <input type="checkbox" name="checkitem">
                                             </td>-->
                                             <td class="am-text-middle" >
-<!--                                                <span class="search"><a href='--><?//= url("customer.history/index&&search=".$order['user_name']) ?><!--' style='color: #333'>--><?//= $order['user_name'] ?><!--</a> </span>-->
-                                                <span class="search"><?= $order['user_name'] ?></span>
+                                                <span class="search"><a href='<?= url("customer.history/index&&search=".$order['user_name']) ?>' style='color: #333'><?= $order['user_name'] ?></a> </span>
                                             </td>
                                             <?php if($order['sex'] == 0):?>
                                                 <td class="am-text-middle">保密</td>
@@ -245,14 +244,14 @@
                                                 <span > <?= $order['mobile'] ?></span>
                                             </td>
                                             <td class="am-text-middle" >
-                                                <span > <?= $order['point'] ?></span>
+                                                <span > <?= $order['glasses_total_point'] ?></span>
                                             </td>
                                             <td class="am-text-middle" >
                                                 <span > <?= $order['sales'] ?></span>
                                             </td>
                                             <td class="am-text-middle" >
                                                 <div class="tpl-table-black-operation">
-                                                    <a class="tpl-table-black-operation-del" target="_blank"
+                                                    <a class="tpl-table-black-operation-green"
                                                        href="<?= url("customer.history/index&&search=".$order['user_name']) ?>">
                                                         订单信息</a>
 
@@ -260,18 +259,19 @@
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
-                                        <tr>
-                                            <td colspan="<?= $colspan+1 ?>" class="am-text-center">暂无记录</td>
-                                            <!--因新增加的复选框，导致底部样式改变，所以colspan多加一位-->
-                                        </tr>
                                     <?php endif; ?>
+
+
+                                    <tr>
+                                        <td colspan="<?= $colspan+1 ?>" class="am-text-center">暂无记录</td>
+                                        <!--因新增加的复选框，导致底部样式改变，所以colspan多加一位-->
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="am-u-lg-12 am-cf">
-                                <div class="am-fr"><?= $list->render() ?> </div>
                                 <div class="am-fr pagination-total am-margin-right">
-                                    <div class="am-vertical-align-middle">总记录：<?= $list->total() ?></div>
+                                    <div class="am-vertical-align-middle">总记录：<?= isset($new_arr)?count($new_arr):0 ?></div>
                                 </div>
                             </div>
                         </div>

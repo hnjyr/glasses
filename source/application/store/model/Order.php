@@ -476,6 +476,7 @@ class Order extends OrderModel
             ->sum('pay_price');
     }
 
+
     /**
      * 获取某天的下单用户数
      * @param $day
