@@ -121,6 +121,6 @@ class __TwigTemplate_1c51641d9ca55d24690fe99fb44dcd99ba60e455870b686e7a456e69599
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "list/item.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\list\\item.twig");
+        return new Twig_Source("", "list/item.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\list\\item.twig");
     }
 }

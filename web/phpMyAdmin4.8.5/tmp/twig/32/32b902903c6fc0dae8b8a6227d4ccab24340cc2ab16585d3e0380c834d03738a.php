@@ -65,6 +65,6 @@ class __TwigTemplate_dd6bad7009f24af6b7940691eb96ee4641ded57fe75073fba454ffb51ea
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "database/structure/favorite_anchor.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\database\\structure\\favorite_anchor.twig");
+        return new Twig_Source("", "database/structure/favorite_anchor.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\database\\structure\\favorite_anchor.twig");
     }
 }

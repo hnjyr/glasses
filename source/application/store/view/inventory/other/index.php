@@ -737,7 +737,6 @@
                               message: '修改成功！',
                               type: 'success'
                           });
-                          
                           that.dialogVisiblepp = false;
                           location.reload()
                       }else{

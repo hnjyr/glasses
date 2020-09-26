@@ -61,6 +61,6 @@ class __TwigTemplate_f994d0193d43edcef262f224dfff4e665b97094567984058f72b5d94529
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "database/structure/print_view_data_dictionary_link.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\database\\structure\\print_view_data_dictionary_link.twig");
+        return new Twig_Source("", "database/structure/print_view_data_dictionary_link.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\database\\structure\\print_view_data_dictionary_link.twig");
     }
 }

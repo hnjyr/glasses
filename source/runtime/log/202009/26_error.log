@@ -1,0 +1,297 @@
+---------------------------------------------------------------
+[ 2020-09-26T18:44:20+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/passport/login
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)[C:\Users\Administrator\Desktop\glasses\source\thinkphp\library\think\db\Connection.php:295]
+---------------------------------------------------------------
+[ 2020-09-26T18:44:39+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/passport/login
+[ error ] [8]未定义数组下标: 1[C:\Users\Administrator\Desktop\glasses\source\application\common.php:362]
+---------------------------------------------------------------
+[ 2020-09-26T18:45:56+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/index/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: user[C:\Users\Administrator\Desktop\glasses\source\application\store\controller\Index.php:37]
+[ error ] [8]未定义变量: filter[C:\Users\Administrator\Desktop\glasses\source\application\store\model\NewOrder.php:582]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:265]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:267]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:274]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:276]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:287]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:289]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:296]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:298]
+---------------------------------------------------------------
+[ 2020-09-26T18:46:36+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/user/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T18:46:45+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/passport/logout
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T18:59:47+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/index/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:265]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:267]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:274]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:276]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:287]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:289]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:296]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:298]
+---------------------------------------------------------------
+[ 2020-09-26T18:59:55+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.user/renew
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:00:01+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:00:05+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order/export&
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:00:06+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:03:20+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:03:29+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:04:57+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:05:29+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:05:57+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:06:20+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:06:59+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:07:15+08:00 ] 127.0.0.1 POST www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:07:18+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:07:21+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.user/renew
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:07:29+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales_order/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]compact(): Undefined variable: data[C:\Users\Administrator\Desktop\glasses\source\application\store\controller\setting\SalesOrder.php:177]
+[ error ] [8]未定义变量: admin_info[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\6448cb9ad740d61858d9950b83d2a534.php:142]
+---------------------------------------------------------------
+[ 2020-09-26T19:12:46+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/statistics.data/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+---------------------------------------------------------------
+[ 2020-09-26T19:12:49+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/passport/logout
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:13:00+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/index/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:265]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:267]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:274]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:276]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:287]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:289]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:296]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:298]
+---------------------------------------------------------------
+[ 2020-09-26T19:13:01+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/passport/logout
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:17:03+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/index/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:265]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:267]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:274]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:276]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:287]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:289]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:296]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:298]
+---------------------------------------------------------------
+[ 2020-09-26T19:18:25+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/passport/logout
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:15+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/index/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:265]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:267]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:274]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:276]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:287]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:289]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:296]
+[ error ] [8]未定义数组索引: widget-outline[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\21afd5c65edee37486703d23b9ba1e83.php:298]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:17+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/inventory.index/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]compact(): Undefined variable: shopList[C:\Users\Administrator\Desktop\glasses\source\application\store\controller\inventory\Index.php:686]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:20+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/inventory.index/getbrandlist
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: list[C:\Users\Administrator\Desktop\glasses\source\application\store\controller\inventory\Index.php:50]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:29+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.user/renew
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:32+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:34+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales_order/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]compact(): Undefined variable: data[C:\Users\Administrator\Desktop\glasses\source\application\store\controller\setting\SalesOrder.php:177]
+[ error ] [8]未定义变量: admin_info[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\6448cb9ad740d61858d9950b83d2a534.php:142]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:36+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:39+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order/export&
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:39+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:136]
+[ error ] [8]未定义变量: data[C:\Users\Administrator\Desktop\glasses\source\runtime\temp\335161dd32b30265e457763f6ce2ae97.php:143]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:50+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:52+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/statistics.data/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+[ error ] [8]未定义数组索引: province_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:199]
+[ error ] [8]未定义数组索引: city_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:200]
+[ error ] [8]未定义数组索引: region_id[C:\Users\Administrator\Desktop\glasses\source\application\common\model\User.php:201]
+---------------------------------------------------------------
+[ 2020-09-26T19:24:53+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/order.index/all_list
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:25:11+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/order.glasses/all_list
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:25:14+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/order.glasses/all_list
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:25:16+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.glasses/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:27:55+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.glasses/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:28:28+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.glasses/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:28:29+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:31:28+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:32:34+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.user/renew
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:32:35+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/setting.sales/index
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:35:09+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.glasses/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:35:18+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:36:34+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:36:41+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:37:49+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:38:11+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:38:53+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/new_order.contact/add
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]
+---------------------------------------------------------------
+[ 2020-09-26T19:39:07+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/passport/logout
+[ error ] [8]未定义数组索引: is_super[C:\Users\Administrator\Desktop\glasses\source\application\store\service\Menus.php:99]

@@ -136,10 +136,8 @@ html, body {
     position: absolute;
     top: 229px;
     right: 240px;
-
     background: #fff;
     border-radius: 16px;
-    /*padding: 50px 40px 40px;*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

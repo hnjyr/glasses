@@ -40,6 +40,6 @@ class __TwigTemplate_fd7e50c722fb0745346ffdbd874c4b1bccfcaee1c748e88a82da61911cf
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "login/footer.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\login\\footer.twig");
+        return new Twig_Source("", "login/footer.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\login\\footer.twig");
     }
 }

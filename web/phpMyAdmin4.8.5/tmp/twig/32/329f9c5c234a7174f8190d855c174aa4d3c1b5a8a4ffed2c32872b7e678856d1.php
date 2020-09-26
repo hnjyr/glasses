@@ -57,6 +57,6 @@ class __TwigTemplate_c54826e8d3a57bd5b6c17f3608c8d6e72fb8972d737ba7b0897a2538006
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "config/form_display/group_header.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\config\\form_display\\group_header.twig");
+        return new Twig_Source("", "config/form_display/group_header.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\config\\form_display\\group_header.twig");
     }
 }

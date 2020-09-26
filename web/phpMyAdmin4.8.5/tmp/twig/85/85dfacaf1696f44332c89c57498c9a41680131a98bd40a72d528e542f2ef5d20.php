@@ -73,6 +73,6 @@ class __TwigTemplate_0ccd5299585ae6f9412ba80bd4b9b360772bf2840f1d29ee5a12b91bc17
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "navigation/logo.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\navigation\\logo.twig");
+        return new Twig_Source("", "navigation/logo.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\navigation\\logo.twig");
     }
 }

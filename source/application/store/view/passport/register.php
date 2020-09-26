@@ -154,7 +154,7 @@
                 </div>
                 <div class="form-group">
                     <i><img class="input_icon" src="assets/store/img/login/phone.png" alt="" style=""></i>
-                    <input class="phone" name="Register[username]" maxlength='11' placeholder="请输入手机号" type="text" required >
+                    <input id='phone' class="phone" name="Register[username]" maxlength='11' placeholder="请输入手机号" type="text" required >
                 </div>
                 <div class="form-group">
                     <i><img class="input_icon" src="assets/store/img/login/shop.png" alt="" style=""></i>
@@ -250,6 +250,12 @@
 <script src="assets/common/plugins/layer/layer.js?v=<?= $version ?>"></script>
 <script src="assets/common/js/jquery.form.min.js"></script>
 <script>
+    const that=this
+    function isPhone(str) {
+        let reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/;
+        return reg.test(str);
+    }
+
     $('#type').click(function (e) {
         var v= $('#type').val()
         if(v=='1'){
@@ -279,27 +285,37 @@
     console.log(img)
         if(show!=''){
            if(img!=undefined&&img1!=undefined){
-            var $form = $('#register-form');
-            $form.submit(function () {
-                var $btn_submit = $('#btn-submit-register');
-                $btn_submit.attr("disabled", true);
-                $form.ajaxSubmit({
-                    type: "post",
-                    dataType: "json",
-                    url: 'index.php?s=/store/passport/register',
-                    success: function (result) {
-                        $btn_submit.attr('disabled', false);
-                        if (result.code === 1) {
-                            layer.msg(result.msg, {time: 1500, anim: 1}, function () {
-                                window.location.href = "index.php?s=/store/passport/login";
-                            });
-                            return true;
-                        }
-                        layer.msg(result.msg, {time: 1500, anim: 6});
-                    }
-                });
-                return false;
-            });
+            var value=$("#phone").val()
+            var flag=that.isPhone(value)
+            if(value!=''){
+                if(flag&&value!=''){
+                    var $form = $('#register-form');
+                    $form.submit(function () {
+                        var $btn_submit = $('#btn-submit-register');
+                        $btn_submit.attr("disabled", true);
+                        $form.ajaxSubmit({
+                            type: "post",
+                            dataType: "json",
+                            url: 'index.php?s=/store/passport/register',
+                            success: function (result) {
+                                $btn_submit.attr('disabled', false);
+                                if (result.code === 1) {
+                                    layer.msg(result.msg, {time: 1500, anim: 1}, function () {
+                                        window.location.href = "index.php?s=/store/passport/login";
+                                    });
+                                    return true;
+                                }
+                                layer.msg(result.msg, {time: 1500, anim: 6});
+                            }
+                        });
+                        return false;
+                    });
+                }else if(value!='') {
+                    layer.msg('您输入的手机号格式不符合要求！', {time: 1500, anim: 6});
+                }
+            }else{
+                layer.msg('手机号不能为空！', {time: 1500, anim: 6});
+            }
            }else{
             layer.msg('请上传营业执照和门头照片', {time: 1500, anim: 6});
            }

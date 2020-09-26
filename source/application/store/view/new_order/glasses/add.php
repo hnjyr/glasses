@@ -137,7 +137,7 @@
             <div class="row">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
-                        <form id="my-form" class="am-form tpl-form-line-form" method="post">
+                        <form onsubmit="return false;" id="my-form" class="am-form tpl-form-line-form" method="post">
                             <div class="widget-body">
                                 <fieldset>
                                     <div class="widget-head am-cf">
@@ -189,7 +189,7 @@
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-u-lg-1 am-form-label form-require new_add_left">电话</label>
                                         <div class="am-u-sm-3 am-u-end">
-                                            <input type="text" class="tpl-form-input" name="mobile"
+                                            <input id='phone' type="text" class="tpl-form-input" name="mobile"
                                                    value="" required>
                                         </div>
 
@@ -579,29 +579,40 @@
     //     $('#my-form').superForm();
     //
     // });
-    $(function () {
-        // 表单提交
-        var $form = $('#my-form');
-        $form.submit(function () {
-            var $btn_submit = $('#btn-submit');
-            $btn_submit.attr("disabled", true);
-            $form.ajaxSubmit({
-                type: "post",
-                dataType: "json",
-                // url: '',
-                success: function (result) {
-                    $btn_submit.attr('disabled', false);
-                    if (result.code === 1) {
-                        layer.msg(result.msg, {time: 1500, anim: 1}, function () {
-                            window.location = result.url;
-                        });
-                        return true;
+
+    const that=this
+    function isPhone(str) {
+        let reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/;
+        return reg.test(str);
+    }
+    $('#btn-submit').click(function () {
+        var value=$("#phone").val()
+        var flag=that.isPhone(value)
+        if(flag&&value!=''){
+            var $form = $('#my-form');
+            $form.submit(function () {
+                var $btn_submit = $('#btn-submit');
+                $btn_submit.attr("disabled", true);
+                $form.ajaxSubmit({
+                    type: "post",
+                    dataType: "json",
+                    // url: '',
+                    success: function (result) {
+                        $btn_submit.attr('disabled', false);
+                        if (result.code === 1) {
+                            layer.msg(result.msg, {time: 1500, anim: 1}, function () {
+                                window.location = result.url;
+                            });
+                            return true;
+                        }
+                        layer.msg(result.msg, {time: 1500, anim: 6});
                     }
-                    layer.msg(result.msg, {time: 1500, anim: 6});
-                }
+                });
+                return false;
             });
-            return false;
-        });
+        }else if(value!=''){
+            layer.msg('您输入的手机号格式不符合要求！', {time: 1500, anim: 6});
+        }
     })
 
 

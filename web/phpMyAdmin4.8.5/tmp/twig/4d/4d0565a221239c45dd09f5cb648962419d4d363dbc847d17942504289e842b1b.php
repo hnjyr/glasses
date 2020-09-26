@@ -116,6 +116,6 @@ class __TwigTemplate_c3f3ad9f102b5da3ddc3b6f16ec47f493a356f1a99a8a0744c1702205c9
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "select_lang.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\select_lang.twig");
+        return new Twig_Source("", "select_lang.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\select_lang.twig");
     }
 }

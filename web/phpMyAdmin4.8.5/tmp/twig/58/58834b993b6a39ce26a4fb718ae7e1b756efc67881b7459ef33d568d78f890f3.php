@@ -57,6 +57,6 @@ class __TwigTemplate_2d75be22f0844779558d1795872b7bb1208c1674fe6b733e9791f99344e
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "database/structure/empty_table.twig", "C:\\Users\\Administrator\\Desktop\\777\\www.glasses.com1(1)\\www.glasses.com1\\web\\phpMyAdmin4.8.5\\templates\\database\\structure\\empty_table.twig");
+        return new Twig_Source("", "database/structure/empty_table.twig", "C:\\Users\\Administrator\\Desktop\\glasses\\web\\phpMyAdmin4.8.5\\templates\\database\\structure\\empty_table.twig");
     }
 }

@@ -126,7 +126,7 @@
             <div class="row">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
-                        <form id="my-form" class="am-form tpl-form-line-form" enctype="multipart/form-data" method="post">
+                        <form id="my-form" onsubmit="return false;" class="am-form tpl-form-line-form" enctype="multipart/form-data" method="post">
                             <div class="widget-body">
                                 <fieldset>
                                     <div class="widget-head am-cf">
@@ -142,7 +142,7 @@
                                     <div class="am-form-group sales">
                                         <label class="am-u-sm-3 am-form-label form-require"> 电话 </label>
                                         <div class="am-u-sm-9">
-                                            <input type="text"  class="tpl-form-input" name="data[mobile]"
+                                            <input id='phone' type="text"  class="tpl-form-input" name="data[mobile]"
                                                    value="<?= $data['mobile'] ?>" required>
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@
                                     </div>
                                     <div class="am-form-group sales">
                                         <div class="am-u-sm-9 am-u-sm-push-3 am-margin-top-lg">
-                                            <button type="submit" class="j-submit am-btn am-btn-secondary">提交
+                                            <button type="submit" id='submit' class="j-submit am-btn am-btn-secondary">提交
                                             </button>
                                         </div>
                                     </div>
@@ -184,35 +184,47 @@
 
 
             });*/
-            $(function () {
-                // 表单提交
-                var $form = $('#my-form');
-                $form.submit(function () {
-                    var sales_name  = $('input[name="data[sales_name]').val();
-                    var mobile  = $('input[name="data[mobile]').val();
-                    var type  = $('select[name="data[type]').val();
-                    var shop_name  = $('select[name="data[shop_name]').val();
-                    var $btn_submit = $('#btn-submit');
-                    $btn_submit.attr("disabled", true);
-                    $form.ajaxSubmit({
-                        type: "post",
-                        dataType: "json",
-                        data:{sales_name:sales_name,mobile:mobile,type:type,user_id:shop_name},
-                        url: "<?= url('setting.sales/add') ?>",
-                        success: function (result) {
-                            $btn_submit.attr('disabled', false);
-                            if (result.code === 1) {
-                                layer.msg(result.msg, {time: 1500, anim: 1}, function () {
-                                    window.location = result.url;
-                                });
-                                return true;
+
+            const that=this
+            function isPhone(str) {
+                let reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/;
+                return reg.test(str);
+            }
+            $('#submit').click(function(){
+            // 表单提交
+                var value=$("#phone").val()
+                var flag=that.isPhone(value)
+                if(flag&&value!=''){
+                    var $form = $('#my-form');
+                    $form.submit(function () {
+                        var sales_name  = $('input[name="data[sales_name]').val();
+                        var mobile  = $('input[name="data[mobile]').val();
+                        var type  = $('select[name="data[type]').val();
+                        var shop_name  = $('select[name="data[shop_name]').val();
+                        var $btn_submit = $('#btn-submit');
+                        $btn_submit.attr("disabled", true);
+                        $form.ajaxSubmit({
+                            type: "post",
+                            dataType: "json",
+                            data:{sales_name:sales_name,mobile:mobile,type:type,user_id:shop_name},
+                            url: "<?= url('setting.sales/add') ?>",
+                            success: function (result) {
+                                $btn_submit.attr('disabled', false);
+                                if (result.code === 1) {
+                                    layer.msg(result.msg, {time: 1500, anim: 1}, function () {
+                                        window.location = result.url;
+                                    });
+                                    return true;
+                                }
+                                layer.msg(result.msg, {time: 1500, anim: 6});
                             }
-                            layer.msg(result.msg, {time: 1500, anim: 6});
-                        }
+                        });
+                        return false;
                     });
-                    return false;
-                });
-            });
+                }else if(value!=''){
+                    layer.msg('您输入的手机号格式不符合要求！', {time: 1500, anim: 6});
+                } 
+            })
         </script>
     </div>
     <!-- 内容区域 end -->
