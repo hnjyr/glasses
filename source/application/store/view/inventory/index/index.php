@@ -192,7 +192,7 @@
                 <div style='text-align: center; flex:1;'>折射率</div>
                 <div style='text-align: center; flex:1;'>型号</div>
             </div>
-            <el-cascader-panel :size="medium" v-model="partyOrganId" :props="prop" :show-all-levels="false" @change="handleChange" @expand-change='change1'>
+            <el-cascader-panel v-model="partyOrganId" :props="prop" :show-all-levels="false" @change="handleChange" @expand-change='change1'>
                 <template slot-scope="{ node, data }">
                     <p>
                         <span style="width: 100px;display: inline-block;">{{ data.label }}</span>
