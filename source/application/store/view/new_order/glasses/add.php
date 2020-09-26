@@ -26,7 +26,6 @@
         STORE_URL = '<?= isset($store_url) ? $store_url : '' ?>';
     </script>
 
-
     <!-- import Vue before Element -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
@@ -439,7 +438,7 @@
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-u-lg-1 am-form-label form-require new_add_left">销售员</label>
                                         <div class="am-u-sm-3 am-u-end">
-                                            <select  name="sales" class="selectpicker1 show-tick form-control"  data-live-search="false">
+                                            <select  name="sales" id='country' class="selectpicker1 show-tick form-control"  data-live-search="false">
                                                 <?php
                                                 if (!$salesList->isEmpty()): foreach ($salesList as $order):
                                                     ?>
@@ -615,6 +614,11 @@
             allowClear: true,
             dropdownAutoWidth : true,
             width: '568'
+        });
+		$('.selectpicker1').select2({
+            allowClear: true,
+            dropdownAutoWidth : true,
+            width: '100%'
         });
     })
 </script>

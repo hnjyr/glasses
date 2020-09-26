@@ -53,6 +53,27 @@
         p{
             margin:0!important;
         }
+		.el-table td, .el-table th {
+			padding: 8px 0;
+		}
+		#app {
+			width: 1120px;
+			overflow: hidden;
+		}
+		.tit_box {
+			 width:1120px;
+			 display: flex;
+			 align-items:center;
+			 justify-content:space-between;
+			 font-weight:500;
+			 font-size:18px;
+		/* 	 border-left: 1px solid #EBEEF5;
+			 border-top: 1px solid #EBEEF5; */
+		}
+		.tit_box div {
+			padding: 10px 0;
+			/* border-right: 1px solid #ebeef5; */
+		}
     </style>
     <script>
         BASE_URL = '<?= isset($base_url) ? $base_url : '' ?>';
@@ -164,92 +185,6 @@
 
     <!-- 内容区域 start -->
     <div class="tpl-content-wrapper <?= empty($second) ? 'no-sidebar-second' : '' ?>">
-        <!-- <div class="row-content am-cf">
-            <div class="row">
-                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
-                    <div class="widget-head am-cf">
-                        <div class="widget-title am-cf"><?= $title ?></div>
-                    </div>
-                    <div class="widget-body am-fr">
-                        <div class="page_toolbar am-margin-bottom-xs am-cf">
-                            <form id="form-search" class="toolbar-form" action="">
-                                <div class="am-u-sm-12 am-u-md-3">
-                                    <div class="am-form-group">
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                    <a class="j-export am-btn am-btn-danger am-radius"
-                                                       href="<?= url('inventory.glasses/add') ?>">
-                                                        <i class="iconfont icon-add am-margin-right-xs"></i>新增品牌
-                                                    </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="order-list am-scrollable-horizontal am-u-sm-12 am-margin-top-xs" >
-                        <table width="100%" class="am-table am-table-centered
-                        am-text-nowrap am-margin-bottom-xs">
-                            <thead>
-                            <tr>
-                                <th><input id="checkAll" type="checkbox"></th>
-                                <th>品牌名称</th>
-                                <th>店铺名称</th>
-                                <th>添加时间</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php $colspan = 5; ?>
-                            <?php if (!$list->isEmpty()): foreach ($list as $order): ?>
-                        <?php //dump($order); ?>
-                                <tr>
-                                    <td class="am-text-middle" >
-                                        <input type="checkbox" name="checkitem" >
-                                    </td>
-
-                                    <td class="am-text-middle" >
-                                        <span class="am-margin-right-lg"><?= $order['brand_name'] ?></span>
-                                    </td>
-                                    <td class="am-text-middle" >
-                                        <span > <?= $order['shop_name'] ?></span>
-                                    </td>
-                                    <td class="am-text-middle" >
-                                        <span > <?= $order['create_time'] ?></span>
-                                    </td>
-
-
-                                    <td class="am-text-middle" >
-                                        <div class="tpl-table-black-operation">
-                                            <a id="submit1"  class="tpl-table-black-operation"
-                                               href="<?= url('inventory.glasses.model/index&&brand_id='.$order['brand_id']) ?>" style="width:50%;margin: auto">
-                                                型号</a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                                <tr>
-                                    <td colspan="<?= $colspan+1 ?>" class="am-text-center">暂无记录</td>
-                                </tr>
-                            <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-
-                        <div class="am-u-lg-12 am-cf">
-                        <div class="am-fr"><?= $list->render() ?> </div>
-                        <div class="am-fr pagination-total am-margin-right">
-                            <div class="am-vertical-align-middle">总记录：<?= $list->total() ?></div>
-                        </div>
-                    </div>
-
-                </div>
-                </div>
-            </div>
-        </div> -->
-
         <div id='app'>
 
              <el-button type="primary" style='margin:20px 0;' @click='addpinpai'>
@@ -276,9 +211,11 @@
                 </template>
             </el-cascader-panel>
 
-            <div style="width:1192px;">
+            <div style="width:1120px;margin-top: 6px;">
                 <el-table
-                        :data="tableData">
+                        :data="tableData"
+						height="480"
+						border>
                     <el-table-column
                             prop="color"
                             label="色号">
@@ -340,6 +277,10 @@
         
             <!-- 添加新品牌弹窗 -->
             <el-dialog :title="tit" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+                <div class="line" v-if='status==5||status==6'>
+                    <span>色&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span>
+                    <input type="text" placeholder="请输入色号" v-model='color'>
+                </div>
                 <div class="line" v-if='status==2'>
                     <span>型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span>
                     <input type="text" placeholder="请输入型号" v-model='types'>
@@ -355,10 +296,6 @@
                 <div class="line" v-if='status==5||status==6'>
                     <span>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格:</span>
                     <input type="number" placeholder="请输入价格" v-model='price'>
-                </div>
-                <div class="line" v-if='status==5||status==6'>
-                    <span>颜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;色:</span>
-                    <input type="text" placeholder="请输入颜色" v-model='color'>
                 </div>
                 <span slot="footer" class="dialog-footer">
                     <el-button @click="dialogVisible = false">取 消</el-button>
@@ -523,30 +460,36 @@
 				},
 				// 删除库存
 				deleteRow(index, rows) {
-						console.log(rows)
-						var id=rows[index].specification_id
-						const that=this
-						$.ajax({
-								type: "POST",
-								url: "index.php?s=/store/inventory.index/del_spec",
-								data:{
-										specification_id:id,
-										dbtype:that.db_type
-								},
-								success: function(data){
-										var res=JSON.parse(data)
-										if(res.code==1){
-												that.tableData.splice(index,1)
-										}else{
-												that.$message({
-														message: res.msg,
-														type: 'warning'
-												});
-										}
-								},
-								error: function (message) {
+					var id=rows[index].specification_id;
+					const that=this;
+					this.$confirm('此操作将永久删除, 是否继续?', '提示', {
+					  confirmButtonText: '确定',
+					  cancelButtonText: '取消',
+					  type: 'warning'
+					}).then(() => {
+					  $.ajax({
+							type: "POST",
+							url: "index.php?s=/store/inventory.index/del_spec",
+							data:{
+								specification_id:id,
+								dbtype:that.db_type
+							},
+							success: function(data){
+								var res=JSON.parse(data)
+								if(res.code==1){
+									that.tableData.splice(index,1)
+								}else{
+									that.$message({
+											message: res.msg,
+											type: 'warning'
+									});
 								}
-						});
+							},
+							error: function (message) {
+							}
+					  });
+					});
+						
 				},
 				// 修改库存
 				editRow(index, rows){
@@ -816,12 +759,16 @@
 								success: function(data){
 										var res=JSON.parse(data)
 										if(res.code==1){
-												that.getinvlist(that.current[0],that.current[1])
+											that.$message({
+											    message: '修改成功！',
+											    type: 'success'
+											});
+											that.getinvlist(that.current[0],that.current[1])
 										}else{
-												that.$message({
-														message: res.msg,
-														type: 'warning'
-												});
+											that.$message({
+													message: res.msg,
+													type: 'warning'
+											});
 										}
 										that.color=''
 										that.price=''

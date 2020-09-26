@@ -113,7 +113,9 @@ html, body {
     height: 100%;
     content: '';
     background: #62a8ea;
-    background: url(../../img/login/login.png) center center/cover no-repeat !important;
+    /* background: url(../../img/login/login.png) center center/cover no-repeat !important; */
+    background: url(../../img/login/login.png) center center no-repeat;
+	background-size:cover;
 }
 
 .container {

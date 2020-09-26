@@ -141,9 +141,9 @@
 
 
 
-    <table border="0" lay-size="sm" >
+    <table border="0" lay-size="sm" style='margin-top:20px;'>
         <tbody>
-        <tr class="layui-table-cell" >
+        <tr class="layui-table-cell">
             <!--<td colspan="1" width='65px'>销量:</td>
             <td colspan="2" width='130px'></td>-->
             <td colspan="1" width='65px'>验光:</td>
@@ -157,7 +157,7 @@
             <td colspan="4"  width='65px'>详细地址：<?= $list['addr'] ?></td>
             <td colspan="3.5"  width='65px'>联系电话:<?= $list['mobile'] ?></td>
             <td colspan="2.5"  width='65px'>日期:<?= date("Y-m-d",$list['create_time']) ?></td>
-            <td><img src="assets/admin/img/test.png" alt="" height="100px"></td>
+            <td><img src="assets/admin/img/test.png" alt="" height="100px" style='position: relative; top: -43px;'></td>
         </tr>
         </tbody>
     </table>
