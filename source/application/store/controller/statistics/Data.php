@@ -37,7 +37,6 @@ class Data extends Controller
     {
         if ($this->request->isAjax()) {
             $data = $this->postData();
-            dump($data);die();
         }
 //        return $this->fetch('index', [
 //            // 数据概况

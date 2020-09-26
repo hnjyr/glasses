@@ -129,7 +129,7 @@
                     <div class="widget widget-survey am-cf" v-loading="survey.loading">
                         <div class="widget-head am-cf">
                             <div class="widget-title">数据概况</div>
-                            <div class="widget-screen am-cf" style="display: none">
+                            <div class="widget-screen am-cf">
                                 <!-- 日期选择器 -->
                                 <div class="yxs-date-editor am-fl">
                                     <el-date-picker
@@ -326,8 +326,9 @@
                             <div class="widget-title">
                                 本月交易走势
 
-                                    <select class="sel_month" name="mm" id="sel_month" style="margin-top: -8px;margin-left: 10px;text-align: center;font-weight: normal;text-align-last: center;">
+                                    <select class="sel_month" name="mm" @change="changemonth" id="sel_month" style="margin-top: -8px;margin-left: 10px;text-align: center;font-weight: normal;text-align-last: center;">
 <!--                                        <option value=""></option>-->
+
                                     </select>
 
 
@@ -519,10 +520,10 @@
         <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
         <script type="text/javascript">
-
             new Vue({
                 el: '#app',
                 data: {
+                    monthdata:<?= $echarts30days['date'] ?>,
                     // 数据概况
                     survey: {
                         loading: false,
@@ -545,7 +546,23 @@
                 },
 
                 methods: {
-
+                    changemonth: function(){
+                        let checkText=$("#sel_month").find("option:selected").text()
+                        console.log(checkText)
+                        var app = this;
+                        // 请求api数据
+                        app.survey.loading = true;
+                        // api地址
+                        var url = '<?= url('statistics.data/survey') ?>';
+                        $.post(url, {
+                            startDate: startDate,
+                            endDate: endDate
+                        }, function (result) {
+                            app.monthdata = result.data;
+                            this.drawLines()
+                            app.survey.loading = false;
+                        });
+                    },
                     // 监听事件：日期选择快捷导航
                     onFastDate: function (days) {
                         var startDate, endDate;
@@ -660,7 +677,7 @@
                             xAxis: {
                                 type: 'category',
                                 boundaryGap: false,
-                                data: <?= $echarts30days['date'] ?>
+                                data:this.monthdata
                             },
                             yAxis: {
                                 type: 'value'
@@ -747,6 +764,7 @@
             });
             (function($){
                 $.extend({
+
                     ms_DatePicker: function (options) {
                         var defaults = {
                             YearSelector: "#sel_year",
