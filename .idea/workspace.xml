@@ -237,7 +237,7 @@
       <path value="$PROJECT_DIR$/source/vendor/myclabs/php-enum" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="848" />
     <option name="y" value="32" />
     <option name="width" value="1096" />
