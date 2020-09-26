@@ -1,0 +1,279 @@
+@font-face {
+  font-family: "iconfont";
+  src: url("iconfont.eot?t=1595312429768"); /* IE9 */
+  src: url("iconfont.eot?t=1595312429768#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOwAAsAAAAACHgAAANiAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDRgqDTIMVATYCJAMcCxAABCAFhG0HdBtpB8gekiQBgAQSoAAAmCAeqLnet8kmuSKhRnJApABYIthfjQpYdeZKuvrunXtvjDoDCYgKWBUupRReeqPnx8IgOiCL+uupTrhlunT+/9zP10XSBpjXng3kTS0rKRJwvOM7A+qfgb9JIvEL+l+Gd2KrDvJmAqprrULcxMkT05Aqgr0CwqrlhgKpGZPYUB2UBHnFiVE4KVNKDiVvcCL4+PBP/1AikaXgwClLBnXoKQ8qz0/3VfZZ4GGIp3NAOY0UPYFIWFPpWiYhSvWUoLq1OtFIoKQkYarMyPL8SkXAzZEcRVVClW3/y0ukooyQg8qaYA6fzikPogiB8khRlXoOj5BQnouQUp6HECnPv4MMFKA2qmML8FAkDvREAe1Jy5qAzR+tZv2dubu3IO67nVEr1MzqxJqHG87onMs6cjcu239H33/5dvd6Hy7dzr5e3XfpZu/uKO7ynd17t+rx/FnTXQb63OicntF498xcp9Y1N9uNS7+fZn/4MPP9+xkfP66f9fEp+IpZKUF+5ZFPY2a2JFC7Xu2x9KS2YwFeUvvgjbPo3PkC97cLu7NerGou3mult7veHt1A5Gmt9xvkf5D+o3GjAEwsK+apsd8lKjVuFJW7PFmWl7/l6+GjKn7ViRMiQb4nYLJk+U+Pd++6d+Qt8QeevW7x8kQ0xx8Q/EOXlF9W380egIr0ZgrSJklvQLIzuZDFN8G9ylZOD6T/+G+M/3lx9OKckf9LNSL4NvJOr6CtIkrxo8SdxX9U3HEk2lIwF9HsTtsEFMamCiSojlb+Zo76/qbTNOpcSVDSKIFEoRWkSjpiI7EnZGoYCLmSMVBdD8On19CAlCDEauhug4OgrgdI1FYFqbpi2EiMINPYP+TqhhSqmxUaXLCGzmF59QkbUCHUmbrOLM33OLFSelg9icayUGRaGjBmUYZWlNVW1eSzw+ihnOKQcMWoI+KMS99lQ9ztUAifBdK3UaMqkyhoq67mVS9UpfkupJtAQgqCdIxqHWPR+Dzcm07SC+8/CRmWCQrZ0NHinoWkkLU4U6tKTQfssMrr1HErdwmtMNQhhGM4yedihrhCJAi+rQqqN9mQhlQxByQCbapxEu+qqlpe477nGagOji1CEtIQQxbyUISSZ5pTSRhSbYyqRzWgGmlNaUYAAAA=")
+      format("woff2"),
+    url("iconfont.woff?t=1595312429768") format("woff"),
+    url("iconfont.ttf?t=1595312429768") format("truetype"),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url("iconfont.svg?t=1595312429768#iconfont") format("svg"); /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* 解决IOS默认滑动很卡的情况 */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 禁止缩放表单 */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input {
+  resize: none;
+  border: none;
+}
+
+/* 取消链接高亮  */
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  font-family: PingFang SC !important;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+}
+
+/* 设置HTML5元素为块 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* 图片自适应 */
+img {
+  width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+  display: block;
+  -ms-interpolation-mode: bicubic; /*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 12px/1.5 "Microsoft YaHei", "宋体", Tahoma, Arial, sans-serif;
+  color: #555;
+  background-color: #fff;
+  font-family: PingFang SC;
+}
+em,
+i {
+  font-style: normal;
+}
+ul,
+li {
+  list-style-type: none;
+}
+strong {
+  font-weight: normal;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+a {
+  text-decoration: none;
+  color: #969696;
+  font-family: "Microsoft YaHei", Tahoma, Arial, sans-serif;
+}
+a:hover {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-family: "Microsoft YaHei";
+}
+img {
+  border: none;
+}
+input {
+  font-family: "Microsoft YaHei";
+}
+/*单行溢出*/
+.one-txt-cut {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*多行溢出 手机端使用*/
+.txt-cut {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 2; */
+  -webkit-box-orient: vertical;
+}
+/* 移动端点击a链接出现蓝色背景问题解决 */
+a:link,
+a:active,
+a:visited,
+a:hover {
+  background: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+.w50 {
+  width: 50%;
+}
+.w25 {
+  width: 25%;
+}
+.w20 {
+  width: 20%;
+}
+.w33 {
+  width: 33.333333%;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.db {
+  display: block !important;
+}
+.dn {
+  display: none;
+}
+.line1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.header {
+  display: flex;
+  background-color: #4f3dc1;
+  height: 1.706667rem;
+  align-items: center;
+}
+.icon-icon-test4{
+    color: #fff;
+    font-size: .853333rem!important;
+    margin-left: .213333rem;
+}

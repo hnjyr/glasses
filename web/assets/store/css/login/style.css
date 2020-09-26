@@ -1,0 +1,417 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    outline-style: none
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    /*初始状态 透明度为0*/
+    40% {
+        opacity: 0;
+    }
+
+    /*过渡状态 透明度为0*/
+    100% {
+        opacity: 1;
+    }
+
+    /*结束状态 透明度为1*/
+}
+
+@-webkit-keyframes fade-in {
+
+    /*针对webkit内核*/
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#wrapper {
+    animation: fade-in; /*动画名称*/
+    animation-duration: .6s; /*动画持续时间*/
+    -webkit-animation: fade-in .6s; /*针对webkit内核*/
+}
+
+body {
+    line-height: 1;
+    font: 14px/1.5 "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Roboto, Arial, sans-serif;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    /* bblr: expression(this.onFocus=this.blur()); */
+    outline-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+input, select {
+    vertical-align: middle
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix::before, .clearfix::after {
+    content: "";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+/* login */
+html, body {
+    height: 100%;
+}
+
+.page-login-v3:before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: #62a8ea;
+    background: url(../../img/login/login.png) center center/cover no-repeat !important;
+}
+
+.container {
+    text-align: center;
+    height: 100%;
+}
+
+.container:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+}
+
+.login-body {
+    display: inline-block;
+    vertical-align: middle;
+    width: 496px;
+    height: 472px;
+    position: absolute;
+    top: 229px;
+    right: 240px;
+
+    background: #fff;
+    border-radius: 16px;
+    /*padding: 50px 40px 40px;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.login-content {
+}
+
+.login-content .brand .brand-img {
+    width: 50px;
+}
+
+.login-content .brand .brand-text {
+    margin-top: 65px;
+    /*margin-bottom: 11px;*/
+    font-size: 30px !important;
+    font-family: "Microsoft YaHei";
+    text-shadow: rgba(0, 0, 0, .15) 0 0 1px;
+    font-weight: 400;
+    color: #4A31B7;
+}
+
+.login-form {
+    margin: 45px 0 30px;
+}
+
+.login-form .form-group {
+    margin: 30px 0;
+    position: relative;
+}
+.login-form .form-group img {
+    position: absolute;
+    left: 75px;
+    top: 10px;
+}
+/* .login-form .username{
+     background: url("../../img/login/username.png") no-repeat 25px;
+ }
+.login-form .password{
+    background: url("../../img/login/password.png") no-repeat 25px;
+} */
+.login-form input {
+    display: block;
+    border: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 395.9px;
+    border: 1px solid #E4EAEC;
+    font-size: 24px;
+    height: 54.9px;
+    line-height: 1.5;
+    margin: auto;
+    outline: none;
+    padding: 0 70px;
+    color: #a3afb7;
+    font: 18px/1.5 "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Roboto, Arial, sans-serif;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+.login-form input:hover{
+    border: 1px solid blue;
+}
+.login-form input:focus {
+    border: 1px solid #ff5060;
+}
+
+.login-form button {
+    width: 395.9px;
+    height: 50px;
+    margin-top: 20px;
+    padding: 10px 18px;
+    font-size: 28px;
+    line-height: 1.0;
+    border-radius: 24.97px;
+    white-space: normal;
+    -webkit-transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
+    -o-transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
+    transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
+    -webkit-font-smoothing: subpixel-antialiased;
+    color: #fff;
+    background: -moz-linear-gradient(left,#434AE7 0%,#6717CD 100%);
+    background: -webkit-gradient(linear, top left, top right, color-stop(0%,#434AE7), color-stop(100%,#6717CD));
+    background: -webkit-linear-gradient(left, #434AE7 0%,#6717CD 100%);
+    background: -o-linear-gradient(left, #434AE7 0%,#6717CD 100%);
+    background: -ms-linear-gradient(left, #434AE7 0%,#6717CD 100%);
+    background: linear-gradient(to right, #434AE7 0%,#6717CD 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#434AE7', endColorstr='#6717CD',GradientType=0 );
+    /*background-color: #ff5060;*/
+    /*border-color: #ff5060;*/
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.login-form button[disabled], .login-form button[disabled]:hover {
+    color: #fff;
+    background-color: #a2caee;
+    border-color: #a2caee;
+    cursor: not-allowed;
+    opacity: .65;
+}
+
+.login-form button:hover {
+    background-color: #fd717e;
+    border-color: #fd717e;
+}
+
+@media screen and (max-width: 404px) {
+    .login-body {
+        width: 310px;
+        padding: 50px 30px 40px;
+    }
+}
+
+.register-body {
+    display: inline-block;
+    vertical-align: middle;
+    width: 603px;
+    height: 961px;
+    position: absolute;
+    top: 80px;
+    right: 180px;
+    background: #F2F2F2;
+    box-shadow: 1px 6px 66px 11px rgba(21, 5, 126, 0.23);
+    border-radius: 16px;
+    /*padding: 50px 40px 40px;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.register-content {
+}
+
+.register-content .brand .brand-img {
+    width: 67px;
+    height: 59px;
+    position: absolute;
+    left: 51px;
+    top: 39px;
+
+}
+
+.register-content .brand .brand-text {
+    margin-top: 25px;
+    margin-left: 144px;
+    width: 131px;
+    height: 29px;
+    /*font-family: PingFang SC;!important;*/
+    /*font-weight: bold;*/
+    color: #4B31B8;
+    line-height: 50px;
+    /*margin-bottom: 11px;*/
+    font-size: 30px !important;
+    text-shadow: rgba(0, 0, 0, .15) 0 0 1px;
+
+}
+.register-content .brand .brand-login{
+    width: 116px;
+    height: 15px;
+    font-size: 16px;
+    /*font-family: PingFang SC;!important;*/
+    /*font-weight: bold;*/
+    color: #989898;
+    line-height: 50px;
+    margin-top: 1px;
+    margin-left: 145px;
+}
+.register-content .brand .brand-login a{
+    text-decoration: none;
+    color: blue;
+}
+
+.register-form {
+    margin: 45px 0 30px;
+    position: absolute;
+}
+
+.register-form .form-group {
+    margin: 10px 0;
+}
+.register-form i .input_icon{
+    position: relative;
+    left:90px;
+    top: 15px;
+    width: 23px;
+}
+i .upload_shop_img{
+    width: 115px;
+    height: 74.5px;
+    position: relative;
+    right: -150px;
+    top: 40px;
+
+}
+/*.register-form .password{
+    background: url("../../img/login/password.png") no-repeat 23px;
+}*/
+.register-form input {
+    display: inline-block;
+    border: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 356px;
+    border: 1px solid #651BCF;
+    background: #F2F2F2;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    font-size: 20px;
+    height: 40px;
+    line-height: 1.5;
+    margin: auto;
+    margin-left: 100px;
+    outline: none;
+    padding: 0 4px;
+    color: #000;
+    font: 18px/1.5 "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Roboto, Arial, sans-serif;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.register-form button {
+    width: 385px;
+    height: 70px;
+    margin-left: 109px;
+
+    font-size: 24px;
+    line-height: 1.0;
+    border-radius: 24.97px;
+    white-space: normal;
+    -webkit-transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
+    -o-transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
+    transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
+    -webkit-font-smoothing: subpixel-antialiased;
+    color: #fff;
+    background: -moz-linear-gradient(left,#434AE7 0%,#6717CD 100%);
+    background: -webkit-gradient(linear, top left, top right, color-stop(0%,#434AE7), color-stop(100%,#6717CD));
+    background: -webkit-linear-gradient(left, #434AE7 0%,#6717CD 100%);
+    background: -o-linear-gradient(left, #434AE7 0%,#6717CD 100%);
+    background: -ms-linear-gradient(left, #434AE7 0%,#6717CD 100%);
+    background: linear-gradient(to right, #434AE7 0%,#6717CD 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#434AE7', endColorstr='#6717CD',GradientType=0 );
+    /*background-color: #ff5060;*/
+    /*border-color: #ff5060;*/
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.register-form button[disabled], .login-form button[disabled]:hover {
+    color: #fff;
+    background-color: #a2caee;
+    border-color: #a2caee;
+    cursor: not-allowed;
+    opacity: .65;
+}
+
+.register-form button:hover {
+    background-color: #fd717e;
+    border-color: #fd717e;
+}
+
+@media screen and (max-width: 404px) {
+    .register-body {
+        width: 310px;
+        padding: 50px 30px 40px;
+    }
+}
