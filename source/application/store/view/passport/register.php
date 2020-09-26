@@ -11,8 +11,8 @@
     <link rel="icon" type="image/png" href="assets/common/i/favicon.ico"/>
     <link rel="stylesheet" href="assets/store/css/login/style.css?v=<?= $version ?>"/>
 
-    <link href="/web/assets/layui/css/layui.css" rel="stylesheet" />
-    <script src="/web/assets/layui/layui.js" type="text/javascript"></script>
+    <link href="/assets/layui/css/layui.css" rel="stylesheet" />
+    <script src="/assets/layui/layui.js" type="text/javascript"></script>
 
     <style type="text/css">
 
@@ -136,6 +136,12 @@
             -webkit-transition-delay: 99999s;
             -webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
         }
+		.register-body {
+			height: 831px;
+		}
+		#btn-submit-register {
+			margin-top: 20px;
+		}
     </style>
 </head>
 <body class="page-login-v3">
@@ -216,16 +222,18 @@
                     </datalist> -->
                 </div>
                 <!-- 店面照片 -->
-                <div id='box1' style='display:flex;justify-content: flex-end;align-items: center;margin-left:150px;'>
-                    <img alt="点击上传" id="faceImg"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="" style='width:80px;height:80px;margin-left:140px;'>
+                <div id='box1' style='position: relative;height: 50px;'>
+					<!-- <div class="img_box1"></div> -->
+                    <img alt="点击上传" id="faceImg"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="" style='width:80px;height:80px;margin-left:70px;position: absolute;top:9px;'>
                 </div>
                 <div class="form-group">
                     <i><img class="shop_img_icon input_icon" src="assets/store/img/login/shop_img.png" alt="" style=""></i>
                     <div class='div' class="shop_img" disable name="Register[shop_img]" placeholder="" type="password" required>请上传店面图片</div>
                 </div>
                 <!-- 营业执照 -->
-                <div id='box2' style='display:flex;justify-content: flex-end;align-items: center;margin-left:150px;'>
-                    <img alt="点击上传" id="faceImg2"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="" style='width:80px;height:80px;margin-left:140px;'>
+                <div id='box2' style='position: relative;height: 50px'>
+					<div class="img_box2"></div>
+                    <img alt="点击上传" id="faceImg2"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="" style='width:80px;height:80px;margin-left:70px;position: absolute;top:9px;'>
                 </div>
                 <div class="form-group">
                     <i><img class="input_icon" src="assets/store/img/login/idcard.png" alt="" style=""></i>
@@ -279,10 +287,9 @@
     })
 
     $('#btn-submit-register').click(function(){
-    var show=$('#show').text()
-    var img=$('#img')[0]
-    var img1=$('#img1')[0]
-    console.log(img)
+		var show=$('#show').text()
+		var img=$('#img')[0]
+		var img1=$('#img1')[0]
         if(show!=''){
            if(img!=undefined&&img1!=undefined){
             var value=$("#phone").val()
@@ -364,7 +371,8 @@
                 // console.log(file_path)
                 var html=$("<img id='img' name='Register[shop_img]' src=" + file_path + " style=' width:80px;height:80px;'>" +
                     "<input name='Register[shop_img]' value='"+ file_path +"' type='text' style='display: none;z-index: -99;'>");
-                $('#box1').prepend(html);
+                // $('.img_box1').html(html);
+				$('#faceImg').attr('src',file_path)
             },
             error:function(err) {
                 alert("上传失败")
@@ -389,7 +397,8 @@
                 // console.log(file_path)
                 var html=$("<img id='img1' name='Register[bussiness_img]' src=" + file_path + " style=' width:80px;height:80px;'>" +
                     "<input name='Register[bussiness_img]' value='"+ file_path +"' type='text' style='display: none;z-index: -99;'>");
-                $('#box2').prepend(html);
+                // $('.img_box2').html(html);
+				$('#faceImg2').attr('src',file_path)
             },
             error:function(err) {
                 alert("上传失败")

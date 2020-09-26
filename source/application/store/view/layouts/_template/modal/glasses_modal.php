@@ -52,21 +52,23 @@ $brand = Db::name('brand')->where('is_delete',0)->where('user_id',$admin_info['u
                     </div>
                     <div class="form-group les-form-group">
                         <label for="recipient-name" class="control-label">镜片球镜度数:</label>
-                        <select onchange="spherical_lensChange(5)" id="spherical_lens" name="data[spherical_lens]" class="selectpicker show-tick form-control"  data-live-search="false">
+                       <!-- <select onchange="spherical_lensChange(5)" id="spherical_lens" name="data[spherical_lens]" class="selectpicker show-tick form-control"  data-live-search="false">
                             <option value="">请选择球镜度数</option>
                             <?php for ($i = 0 ;$i <= 1000 ;$i +=25) :?>
                                 <option value="<?=$i ?>"><?=$i ?></option>
                             <?php endfor; ?>
-                        </select>
+                        </select> -->
+						<input type="number"class="form-control" id="spherical_lens" placeholder="请输入镜片球镜度数" oninput="if(value.length>5)value=value.slice(0,5)" name="data[spherical_lens]">
                     </div>
                     <div class="form-group les-form-group">
                         <label for="recipient-name" class="control-label">镜片柱镜度数:</label>
-                        <select onchange="cytdnderChange()"  id="cytdnder" name="data[cytdnder]" class="selectpicker show-tick form-control"  data-live-search="false">
+                        <!-- <select onchange="cytdnderChange()"  id="cytdnder" name="data[cytdnder]" class="selectpicker show-tick form-control"  data-live-search="false">
                             <option value="">请选择柱镜度数</option>
                             <?php for ($j = 0 ;$j <= 1000 ;$j +=25) :?>
                                 <option value="<?=$j ?>"><?=$j ?></option>
                             <?php endfor; ?>
-                        </select>
+                        </select> -->
+						<input type="number"class="form-control" id="cytdnder" placeholder="请输入镜片柱镜度数" oninput="if(value.length>5)value=value.slice(0,5)" name="data[cytdnder]">
                     </div>
                     <!--<div class="form-group">
                         <label class="col-sm-3 control-label">镜片标准库存：</label>
@@ -237,8 +239,8 @@ $brand = Db::name('brand')->where('is_delete',0)->where('user_id',$admin_info['u
         }
         var refractive = $('#refractive  option:selected').val();
         var model = $('#model  option:selected').val();
-        var spherical_lens = $('#spherical_lens  option:selected').val();
-        var cytdnder = $('#cytdnder  option:selected').val();
+        var spherical_lens = $('#spherical_lens').val();
+        var cytdnder = $('#cytdnder').val();
         btn.attr('disabled',true);
         btn.css({'background-color' : 'gray'});
         $('#submit_xz').ajaxSubmit({
@@ -271,10 +273,13 @@ $brand = Db::name('brand')->where('is_delete',0)->where('user_id',$admin_info['u
 
                         $('.close').click();
                         console.log(result.data[i]);
-
+						btn.attr('disabled',false);
+						btn.css({'background-color' : '#286090'});
                     }
                 }else{
                     layer.msg('暂无记录，请先添加！', {time: 1500, anim: 6});
+					btn.attr('disabled',false);
+					btn.css({'background-color' : '#286090'});
                 }
 
             }

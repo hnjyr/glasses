@@ -1,22 +1,22 @@
 <?php
 
 // 数据库配置
-/*$config = [
-    'host' => '47.92.35.59',
-    'database' => 'www.glasses.com',
-    'username' => 'www.glasses.com',
-    'password' => '7ytS8eP6R74fFh86',
-    'port' => '3306',
-    'charset' => 'utf8',
-];*/
 $config = [
-    'host' => '127.0.0.1',
+    'host' => '47.92.35.59',
     'database' => 'newglasses',
     'username' => 'root',
     'password' => 'root',
     'port' => '3306',
     'charset' => 'utf8',
 ];
+// $config = [
+//     'host' => 'localhost',
+//     'database' => 'newglasses',
+//     'username' => 'newglasses',
+//     'password' => 'd84kGezpGeeXcNE4',
+//     'port' => '3306',
+//     'charset' => 'utf8',
+// ];
 // shop_oa /p75eh7DMi4ZMtHLJ   47.92.35.59@潘孟乐 @李建方 
 
 return [
