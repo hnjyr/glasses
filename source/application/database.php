@@ -17,7 +17,7 @@ $config = [
 //     'port' => '3306',
 //     'charset' => 'utf8',
 // ];
-// shop_oa /p75eh7DMi4ZMtHLJ   47.92.35.59@潘孟乐 @李建方 
+//
 
 return [
     // 数据库类型
