@@ -1,6 +1,0 @@
----------------------------------------------------------------
-[ 2020-09-26T19:12:46+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/statistics.data/index
-[ yoshop-info ] behavior sharp Order --close --close_minute 10 --deadline_time 1601118165 --orderIds []
----------------------------------------------------------------
-[ 2020-09-26T19:24:52+08:00 ] 127.0.0.1 GET www.glasses.com:8081/index.php?s=/store/statistics.data/index
-[ yoshop-info ] behavior sharp Order --close --close_minute 10 --deadline_time 1601118891 --orderIds []
