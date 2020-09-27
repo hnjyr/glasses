@@ -209,6 +209,12 @@ class Controller extends \think\Controller
         if ($this->routeUri === 'inventory.index/add_type') {
             return true;
         }
+        if ($this->routeUri === 'inventory.contact.type/gettype') {
+            return true;
+        }
+        if ($this->routeUri === 'passport/is_user') {
+            return true;
+        }
 //        dump($this->routeUri);
         if (!Auth::getInstance()->checkPrivilege($this->routeUri)) {
             throw new BaseException(['msg' => '很抱歉，没有访问权限!']);
