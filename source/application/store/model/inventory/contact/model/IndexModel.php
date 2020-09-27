@@ -57,7 +57,7 @@ class IndexModel extends BaseModel
             ->field('contact_model.*,user.shop_name,contact_brand.brand_name')
             ->join('contact_brand','contact_brand.brand_id = contact_model.brand_id')
             ->join('user', 'user.user_id = contact_model.user_id')
-            ->where('contact_model.type',$type)
+            ->where('contact_model.type_id',$type)
             ->where('contact_model.brand_id',$brand_id)
             ->where('contact_model.is_delete',0)
             ->order(['contact_model.create_time' => 'desc'])
