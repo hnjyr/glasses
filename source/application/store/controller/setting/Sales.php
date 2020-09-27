@@ -67,12 +67,16 @@ class Sales extends Controller
         $admin_info = Session::get('yoshop_store')['user'];
         $user_info = Db::name('store_user')->where(['store_user_id'=>$admin_info['store_user_id']])->find();
 //        $detail = SalesModel::edit($sales_id,$user_info['user_id']);
+
         $detail = $model->detail($sales_id,$user_info['user_id']);
         if ($this->request->isAjax()){
 
             $data = $this->postData();
+//            dump($model->edit($data,$user_info['user_id']));die();
             if ($model->edit($data,$user_info['user_id'])) {
                 return $this->renderSuccess('修改成功', url('setting.sales/index'));
+            }else{
+                return $this->renderError($model->getError()?$model->getError():"修改失败！");
             }
         }
 

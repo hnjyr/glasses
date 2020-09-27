@@ -195,7 +195,7 @@
                                 </form>
                             </div>
                             <div class="order-list am-scrollable-horizontal am-u-sm-12 am-margin-top-xs">
-                                <table width="100%" class="am-table am-table-centered
+                                <table width="100%"  class="am-table am-table-centered
                         am-text-nowrap am-margin-bottom-xs">
                                     <thead>
                                     <tr>

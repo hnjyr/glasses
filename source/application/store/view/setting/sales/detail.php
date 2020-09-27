@@ -217,21 +217,23 @@
                     var type  = $('select[name="data[type]').val();
                     var shop_name  = $('select[name="data[shop_name]').val();
                     var $btn_submit = $('#btn-submit');
+                    var create_time = $('#edit_created_time').val();
+                    console.log(create_time);
                     $btn_submit.attr("disabled", true);
                     $form.ajaxSubmit({
                         type: "post",
                         dataType: "json",
-                        data:{sales_name:sales_name,mobile:mobile,type:type,user_id:shop_name,sales_id:sales_id},
+                        data:{sales_name:sales_name,mobile:mobile,type:type,user_id:shop_name,sales_id:sales_id,created_time:create_time},
                         url: "<?= url('setting.sales/edit') ?>",
-                        success: function (result) {
+                        success: function (data) {
                             $btn_submit.attr('disabled', false);
-                            if (result.code === 1) {
-                                layer.msg(result.msg, {time: 1500, anim: 1}, function () {
-                                    window.location = result.url;
+                            if (data.code === 1) {
+                                layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                                    window.location = data.url;
                                 });
                                 return true;
                             }
-                            layer.msg(result.msg, {time: 1500, anim: 6});
+                            layer.msg(data.msg, {time: 1500, anim: 6});
                         }
                     });
                     return false;

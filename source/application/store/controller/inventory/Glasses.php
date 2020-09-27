@@ -90,7 +90,7 @@ class Glasses extends Controller
             $list[$key]['standard_inventory'] = $value['standard_inventory'];
             $list[$key]['now_inventory'] = $value['now_inventory'];
             $list[$key]['create_time'] = $value['create_time'];
-            $list[$key]['inventory'] = $list['standard_inventory'] - $list['now_inventory'];
+            $list[$key]['inventory'] = $value['standard_inventory'] - $value['now_inventory'];
         }
 
         return json_encode($list);

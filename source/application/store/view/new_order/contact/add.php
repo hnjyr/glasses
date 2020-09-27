@@ -210,11 +210,6 @@
                                             <tr>
                                                 <th>商品名称</th>
                                                 <th colspan="6" style="width: 35%">品牌</th>
-<<<<<<< Updated upstream
-                                                <!-- <th>到期时间</th> -->
-=======
-<!--                                                <th>到期时间</th>-->
->>>>>>> Stashed changes
                                                 <th>数量</th>
                                                 <th>价格</th>
                                             </tr>
@@ -283,10 +278,10 @@
                                                                value="">
                                                     </div></td>
 
-                                                <td ><div class="am-u-sm-9 am-u-end">
+                                                <!--<td ><div class="am-u-sm-9 am-u-end">
                                                         <input type="text" id="solution_end_time" class="tpl-form-input" name="solution_end_time"
                                                                value="">
-                                                    </div></td>
+                                                    </div></td>-->
 
                                                 <td width="25%"><div class="am-u-sm-9 am-u-end">
                                                         <input   min="0" type="number" class="tpl-form-input" name="solution_num"
@@ -307,10 +302,10 @@
                                                                value="">
                                                     </div></td>
 
-                                                <td ><div class="am-u-sm-9 am-u-end">
+                                                <!--<td ><div class="am-u-sm-9 am-u-end">
                                                         <input type="text" id="contact_les_end_time" class="tpl-form-input" name="contact_les_end_time"
                                                                value="">
-                                                    </div></td>
+                                                    </div></td>-->
                                                 <td width="25%"><div class="am-u-sm-9 am-u-end">
                                                         <input   min="0" type="number" class="tpl-form-input" name="contact_les_num"
                                                                 value="" v-model='num2' @change='change'>
@@ -325,7 +320,7 @@
 
                                             <tr>
                                                 <td>合计</td>
-                                                <td colspan="9">
+                                                <td colspan="8">
                                                     <div class="am-u-sm-9 am-u-end">
                                                         <input readonly type="text" class="tpl-form-input"
                                                                value="" v-model='add'>

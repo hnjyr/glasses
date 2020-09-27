@@ -104,7 +104,9 @@ class SalesModel extends BaseModel
             return false;
         }
         $data['user_id'] = $user_id;
+
         $data['created_time'] = strtotime($data['data']['created_time']);
+
         /*$this->startTrans();
         try {
 
@@ -130,6 +132,7 @@ class SalesModel extends BaseModel
         if ($res){
             return true;
         }
+        $this->error = "要修改信息与之前一致，未做更改";
         return false;
     }
 

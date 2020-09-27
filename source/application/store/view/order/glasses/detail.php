@@ -208,7 +208,7 @@
                             </div>
                             <!-- 视力度数 -->
                             <div class="widget-head am-cf">
-                                <div class="widget-title am-fl">视力度数</div>
+                                <div class="widget-title am-fl">眼睛信息</div>
                             </div>
                             <div class="am-scrollable-horizontal">
                                 <table class="regional-table am-table am-table-bordered am-table-centered
@@ -227,18 +227,6 @@
 
                                     </tr>
                                     <tr>
-                                        <td>左眼</td>
-                                        <td><span class="goods-title"><?= $detail['left_ball_mirror'] ?></span></td>
-                                        <td><span class="goods-title"><?= $detail['left_cylinder'] ?></span></td>
-                                        <td><span class="goods-title"><?= $detail['left_axis'] ?></span><br></td>
-                                        <td><span  class="goods-title"><?= $detail['left_add'] ?></span></td>
-                                        <td><span  class="goods-title"><?= $detail['left_pupil'] ?></span></td>
-                                        <td><span  class="goods-title"><?= $detail['left_prism'] ?></span></td>
-                                        <td><span  class="goods-title"><?= $detail['left_cva'] ?></span></td>
-                                        <td rowspan="2"><span  class="goods-title"><?= $detail['distance'] ?></span></td>
-
-                                    </tr>
-                                    <tr>
                                         <td>右眼</td>
                                         <td><span class="goods-title"><?= $detail['right_ball_mirror'] ?></span></td>
                                         <td><span class="goods-title"><?= $detail['right_cylinder'] ?></span></td>
@@ -247,8 +235,21 @@
                                         <td><span  class="goods-title"><?= $detail['right_pupil'] ?></span></td>
                                         <td><span  class="goods-title"><?= $detail['right_prism'] ?></span></td>
                                         <td><span  class="goods-title"><?= $detail['right_cva'] ?></span></td>
+                                        <td rowspan="2"><span  class="goods-title"><?= $detail['distance'] ?></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>左眼</td>
+                                        <td><span class="goods-title"><?= $detail['left_ball_mirror'] ?></span></td>
+                                        <td><span class="goods-title"><?= $detail['left_cylinder'] ?></span></td>
+                                        <td><span class="goods-title"><?= $detail['left_axis'] ?></span><br></td>
+                                        <td><span  class="goods-title"><?= $detail['left_add'] ?></span></td>
+                                        <td><span  class="goods-title"><?= $detail['left_pupil'] ?></span></td>
+                                        <td><span  class="goods-title"><?= $detail['left_prism'] ?></span></td>
+                                        <td><span  class="goods-title"><?= $detail['left_cva'] ?></span></td>
+
 
                                     </tr>
+
                                     </tbody>
                                 </table>
                             </div>

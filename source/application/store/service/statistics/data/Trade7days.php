@@ -35,15 +35,16 @@ class Trade7days extends BasicsService
     public function getTransactionTrend()
     {
         // 最近七天日期
-        $lately7days = $this->getLately7dayss();
+        $lately7days = $this->getLately7days();
+        $lately7dayss = $this->getLately7dayss();
 //        dump($lately7days);die();
         return [
             'date' => helper::jsonEncode($lately7days),
-            'order_total' => helper::jsonEncode($this->getOrderTotalByDate($lately7days)),
-            'order_total_price' => helper::jsonEncode($this->getOrderTotalPriceByDate($lately7days)),
-            'week_order_total' => array_sum($this->getOrderTotalByDate($lately7days)),
-            'week_order_total_price' => array_sum($this->getOrderTotalPriceByDate($lately7days)),
-            'net_income_price' =>helper::jsonEncode($this->getIncomeOrderTotalPriceByDate($lately7days)),
+            'order_total' => helper::jsonEncode($this->getOrderTotalByDate($lately7dayss)),
+            'order_total_price' => helper::jsonEncode($this->getOrderTotalPriceByDate($lately7dayss)),
+            'week_order_total' => array_sum($this->getOrderTotalByDate($lately7dayss)),
+            'week_order_total_price' => array_sum($this->getOrderTotalPriceByDate($lately7dayss)),
+            'net_income_price' =>helper::jsonEncode($this->getIncomeOrderTotalPriceByDate($lately7dayss)),
         ];
     }
 
@@ -102,27 +103,27 @@ class Trade7days extends BasicsService
         //获取当前周几
         $week = date('w', $time);
         $date = [];
-        for ($i=1; $i<8; $i++){
+        for ($i=0; $i<7; $i++){
             $date[$i] = date('Y-m-d' ,strtotime( '+' . $i-$week .' days', $time));
-            if ($i == 1){
+            if ($i == 0){
                 $date[$i] .= "\r\n周一";
             }
-            if ($i == 2){
+            if ($i == 1){
                 $date[$i] .= "\r\n周二";
             }
-            if ($i == 3){
+            if ($i == 2){
                 $date[$i] .= "\r\n周三";
             }
-            if ($i == 4){
+            if ($i == 3){
                 $date[$i] .= "\r\n周四";
             }
-            if ($i == 5){
+            if ($i == 4){
                 $date[$i] .= "\r\n周五";
             }
-            if ($i == 6){
+            if ($i == 5){
                 $date[$i] .= "\r\n周六";
             }
-            if ($i == 7){
+            if ($i == 6){
                 $date[$i] .= "\r\n周日";
             }
         }
@@ -142,7 +143,7 @@ class Trade7days extends BasicsService
         //获取当前周几
         $week = date('w', $time);
         $date = [];
-        for ($i=1; $i<8; $i++){
+        for ($i=0; $i<7; $i++){
             $date[$i] = date('Y-m-d' ,strtotime( '+' . $i-$week .' days', $time));
         }
 //            dump(array_reverse(array_reverse($date)));die();

@@ -239,11 +239,11 @@ $brand = Db::name('brand')->where('is_delete',0)->where('user_id',$admin_info['u
                 if (result.data.length != 0 ){
                     for (var i = 0 ;i < result.data.length;i++){
                         var data = [
-                            result.data[i].brand_name+'—'+
-                            l+'—'+
-                            result.data[i].refractive_num+'—'+
-                            result.data[i].model+'—'+
-                            result.data[i].spherical_lens+'—'+
+                            result.data[i].brand_name+'  '+
+                            l+'  '+
+                            result.data[i].refractive_num+'  '+
+                            result.data[i].model+'  '+
+                            result.data[i].spherical_lens+'  '+
                             result.data[i].cytdnder
 
                         ];

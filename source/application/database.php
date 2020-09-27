@@ -2,7 +2,7 @@
 
 // 数据库配置
 $config = [
-    'host' => '47.92.35.59',
+    'host' => 'localhost',
     'database' => 'newglasses',
     'username' => 'root',
     'password' => 'root',

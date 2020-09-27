@@ -222,14 +222,6 @@
                                         <th>ADD</th>
                                     </tr>
                                     <tr>
-                                        <td>左眼</td>
-                                        <td><span class="goods-title"><?= $detail['left_ball_mirror'] ?></span></td>
-                                        <td><span class="goods-title"><?= $detail['left_cylinder'] ?></span></td>
-                                        <td><span class="goods-title"><?= $detail['left_axis'] ?></span><br></td>
-                                        <td><span  class="goods-title"><?= $detail['left_add'] ?></span></td>
-
-                                    </tr>
-                                    <tr>
                                         <td>右眼</td>
                                         <td><span class="goods-title"><?= $detail['right_ball_mirror'] ?></span></td>
                                         <td><span class="goods-title"><?= $detail['right_cylinder'] ?></span></td>
@@ -237,6 +229,15 @@
                                         <td><span  class="goods-title"><?= $detail['right_add'] ?></span></td>
 
                                     </tr>
+                                    <tr>
+                                        <td>左眼</td>
+                                        <td><span class="goods-title"><?= $detail['left_ball_mirror'] ?></span></td>
+                                        <td><span class="goods-title"><?= $detail['left_cylinder'] ?></span></td>
+                                        <td><span class="goods-title"><?= $detail['left_axis'] ?></span><br></td>
+                                        <td><span  class="goods-title"><?= $detail['left_add'] ?></span></td>
+
+                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>
