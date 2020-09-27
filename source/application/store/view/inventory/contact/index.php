@@ -190,7 +190,7 @@
 
             <div style='width:1120px;display: flex;align-items:center;justify-content:space-between;padding:10px 0;font-weight:500;font-size:18px;'>
                 <div style='text-align: center;flex:1;'>品牌</div>
-                <div style='text-align: center; flex:1;'>规格</div>
+                <div style='text-align: center; flex:1;'>类型</div>
                 <div style='text-align: center; flex:1;'>型号</div>
                 <div style='text-align: center; flex:1;'>颜色</div>
             </div>
@@ -265,6 +265,10 @@
                     <span>品牌:</span>
                     <input type="text" placeholder="请输入品牌名称" v-model='name'>
                 </div>
+                <div class="line" v-if='status==3'>
+                    <span>类型:</span>
+                    <input type="text" placeholder="请输入类型" v-model='ltype'>
+                </div>
                 <div class="line" v-if='status==4'>
                     <span>型号:</span>
                     <input type="text" placeholder="请输入型号" v-model='types'>
@@ -321,7 +325,7 @@
                 typelist: [], //选择数组
                 dialogVisible: false, //是否显示添加弹框
                 name: '', //品牌名称
-                sphereType: '', // 球面类型
+                ltype: '', // 球面类型
                 bzkucun:'',//标准库存
                 refractive: '', //折射率
                 types: '', //型号
@@ -362,25 +366,27 @@
                               });
                             break;
                             case 1:
-                                var obj=[{
-                                    brand_id:0,
-                                    brand_name:'球面',
-                                },{
-                                    brand_id:1,
-                                    brand_name:'非球面',
-                                }]
-                                let cities = obj.map((v, i) => ({
-                                    value: v.brand_id,
-                                    label: v.brand_name,
-                                    fbrand_id: node.value,
-                                    leaf: node.level >= 3
-                                }))
-                                resolve(cities);
+                                $.ajax({
+                                    type: "GET",
+                                    url: "index.php?s=/store/inventory.contact/gettypelist&brand_id="+node.value,
+                                    success: function(data){
+                                    var list=JSON.parse(data) || [];
+                                        let cities = list.map((v, i) => ({
+                                            value: v.type_id,
+                                            label: v.type,
+                                            leaf: node.level >= 3,
+                                            fbrand_id:node.value
+                                        }))
+                                        resolve(cities);
+                                    },
+                                    error: function (message) {
+                                    }
+                                });
                                 break;
                             case 2:
                               $.ajax({
                                 type: "GET",
-                                url: "index.php?s=/store/inventory.contact/getmodellist&brand_id="+node.data.fbrand_id+'&type='+node.value,
+                                url: "index.php?s=/store/inventory.contact/getmodellist&brand_id="+node.data.fbrand_id+'&type_id='+node.value,
                                 success: function(data){
                                     var list=JSON.parse(data) || [];
                                     let cities = list.map((v, i) => ({
@@ -398,7 +404,7 @@
                             case 3:
                                 $.ajax({
                                 type: "GET",
-                                url: "index.php?s=/store/inventory.contact/getcolor&brand_id="+node.data.fbrand_id+'&type='+node.data.f_type+'&model_id='+node.value,
+                                url: "index.php?s=/store/inventory.contact/getcolor&brand_id="+node.data.fbrand_id+'&type_id='+node.data.f_type+'&model_id='+node.value,
                                 success: function(data){
                                     var list=JSON.parse(data) || [];
                                     let cities = list.map((v, i) => ({
@@ -490,7 +496,7 @@
                 const that=this
                 $.ajax({
                     type: "GET",
-                    url: "index.php?s=/store/inventory.contact/getspeclist&brand_id="+fid+'&type='+id+'&model_id='+zid+'&color_id='+sid,
+                    url: "index.php?s=/store/inventory.contact/getspeclist&brand_id="+fid+'&type_id='+id+'&model_id='+zid+'&color_id='+sid,
                     success: function(data){
                         var list=JSON.parse(data)
                         console.log(list)
@@ -508,11 +514,8 @@
                 this.status = 1;
                 this.name = node.label;
               }else if(node.level == 2) {
-                this.$message({
-                  message: '不可进行修改操作',
-                  type: 'warning'
-                });
-                return false;
+                this.status = 3;
+                this.ltype = node.label;
               }else if(node.level == 3) {
                 this.status = 4;
                 this.types = node.label;
@@ -527,32 +530,26 @@
               this.dialogVisible = true;
             },
             add(node) {
-                if(node.level === 1) {
-                    this.$message({
-                      message: '不可进行添加操作',
-                      type: 'warning'
-                    });
-                    return false;
-                }else {
-                    //  node.level === 2? 4:5;
-                    switch(node.level) {
-                        case 2:
-                            this.status =4
-                            break;
-                        case 3:
-                            this.status =2
-                            break;
-                        default:
-                        this.status =5
-                    } 
-                    this.dataNode = node.data;
-                    this.level = node.level;
-                    this.editType = 'add';
-                    this.tit='添加';
-                    this.dialogVisible = true;
-                    this.degree=''
-                    this.bzkucun=''
-                }
+                switch(node.level) {
+                    case 1:
+                        this.status =3
+                        break;
+                    case 2:
+                        this.status =4
+                        break;
+                    case 3:
+                        this.status =2
+                        break;
+                    default:
+                    this.status =5
+                } 
+                this.dataNode = node.data;
+                this.level = node.level;
+                this.editType = 'add';
+                this.tit='添加';
+                this.dialogVisible = true;
+                this.degree=''
+                this.bzkucun=''
             },
             addPP() {
                 let level = this.level,
@@ -573,9 +570,6 @@
                     .catch(_ => {});
             },
             del(node) {
-              if(node.level == 2) {
-                return false;
-              }
               this.level = node.level;
               this.dataNode = node.data;
               this.$confirm('此操作将永久删除, 是否继续?', '提示', {
@@ -649,7 +643,42 @@
                   });
                 }
               }
-              if(level == 2) {
+              if(level == 1) {
+                  // 添加类型
+                  if (that.ltype != '') {//添加
+                    $.ajax({
+                      type: "POST",
+                      url:'index.php?s=/store/inventory.index/add_type',
+                      data:{
+                          brand_id:data.value,
+                          type:that.ltype,
+                      },
+                      success: function(res){
+                          var res=JSON.parse(res)
+                          if(res.code==1){
+                              that.$message({
+                                  message: '添加成功！',
+                                  type: 'success'
+                              });
+                              that.dialogVisible = false
+                              location.reload();
+                          }else{
+                              that.$message({
+                                  message: res.msg,
+                                  type: 'warning'
+                              });
+                          } 
+                      },
+                      error: function (message) {
+                      }
+                    });
+                  }else{
+                    that.$message({
+                        message: '内容不能为空',
+                        type: 'warning'
+                    });
+                  }
+              }else if(level == 2) {
                   // 添加型号
                   if (that.types != '') {//添加
                     $.ajax({
@@ -657,7 +686,7 @@
                       url:'index.php?s=/store/inventory.index/add_model',
                       data:{
                           brand_id:data.fbrand_id,
-                          type:data.value,
+                          type_id:data.value,
                           model:that.types,
                           dbtype:that.db_type
                       },
@@ -695,7 +724,7 @@
                         brand_id:data.fbrand_id,
                         model_id:data.value,
                         color:that.color,
-                        type:data.f_type,
+                        type_id:data.f_type,
                         dbtype:that.db_type
                     },
                     success: function(res){
@@ -733,7 +762,7 @@
                         brand_id:data.fbrand_id,
                         model_id:data.f_model_id,
                         now_inventory:that.bzkucun,
-                        type:data.f_type,
+                        type_id:data.f_type,
                         color_id:data.value,
                         degree:that.degree,
                         price:that.price,
@@ -842,6 +871,34 @@
                   error: function (message) {
                   }
                 });
+              }else if(level == 2) {
+                $.ajax({
+                  type: "POST",
+                  url:'index.php?s=/store/inventory.index/update_type',
+                  data:{
+                        type_id:data.value,
+                        type:that.ltype,
+                        dbtype:that.db_type
+                  },
+                  success: function(res){
+                    var res=JSON.parse(res)
+                    if(res.code==1){
+                        that.$message({
+                            message: '修改成功！',
+                            type: 'success'
+                        });
+                        that.dialogVisible = false
+                        location.reload();
+                    }else{
+                        that.$message({
+                            message: '修改失败！',
+                            type: 'warning'
+                        });
+                    } 
+                  },
+                  error: function (message) {
+                  }
+                });
               }else if(level == 3) {
                 $.ajax({
                   type: "POST",
@@ -909,6 +966,33 @@
                   data:{
                       brand_id:data.value,
                       dbtype:that.db_type
+                  },
+                  success: function(res){
+                      var res=JSON.parse(res)
+                      if(res.code==1){
+                          that.$message({
+                              message: '删除成功！',
+                              type: 'success'
+                          });
+                          that.dialogVisiblepp = false;
+                          location.reload();
+                      }else{
+                          that.$message({
+                              message: res.msg,
+                              type: 'warning'
+                          });
+                      } 
+                  },
+                  error: function (message) {
+                  }
+                });
+              }if(level == 2) {
+                $.ajax({
+                  type: "POST",
+                  url:'index.php?s=/store/inventory.index/del_type',
+                  data:{
+                        type_id:data.value,
+                        // dbtype:that.db_type
                   },
                   success: function(res){
                       var res=JSON.parse(res)

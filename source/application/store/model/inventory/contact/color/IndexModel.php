@@ -99,7 +99,7 @@ class IndexModel extends BaseModel
                 ->where('contact_color.user_id','in',$arr)
                 ->where('contact_color.brand_id',$brand_id)
                 ->where('contact_color.is_delete',0)
-                ->where('contact_color.type',$type)
+                ->where('contact_color.type_id',$type)
                 ->order(['contact_color.create_time' => 'desc'])
                 ->paginate(10, false, [
                     'query' => \request()->request()
@@ -115,7 +115,7 @@ class IndexModel extends BaseModel
                 ->where('contact_color.brand_id',$brand_id)
                 ->where('contact_color.model_id',$model_id)
                 ->where('contact_color.is_delete',0)
-                ->where('contact_color.type',$type)
+                ->where('contact_color.type_id',$type)
                 ->order(['contact_color.create_time' => 'desc'])
                 ->paginate(10, false, [
                     'query' => \request()->request()
