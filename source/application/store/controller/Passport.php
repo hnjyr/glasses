@@ -74,6 +74,21 @@ class Passport extends Controller
 
         return $this->fetch('register', compact('fatherLsit','version','setting'));
     }
+    public function is_user(){
+        $data = $this->request->post();
+        if (!$data['linkman'] || !$data['username'] || !$data['code'] || !$data['phone'] || !$data['password']){
+            return $this->renderError("请填写完整信息！");
+        }
+        $code = Db::name('sms_code')->where('phone',$data['phone'])->order('create_time desc')->value('code');
+        if($code != $data['code']){
+            return $this->renderError("验证码错误!",[]);
+        }
+        $result = Db::name('user')->where('username',$data['username'])->find();
+        $result1 = Db::name('user')->where('linkman',$data['linkman'])->find();
+        if($result || $result1){
+            return  $this->renderError("不能重复申请!");
+        }
+    }
     /**
      * 退出登录
      */
