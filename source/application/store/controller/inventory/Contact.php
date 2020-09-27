@@ -6,6 +6,7 @@ use app\store\model\inventory\contact\IndexModel as IndexModel;
 use app\store\controller\Controller;
 use app\store\model\inventory\contact\specification\IndexModel as SpecIndexModel;
 use app\store\model\inventory\contact\model\IndexModel as ModelIndexModel;
+use app\store\model\inventory\contact\type\IndexModel as TypeIndexModel;
 use app\store\model\inventory\contact\color\IndexModel as ColorIndexModel;
 use app\store\model\Express as ExpressModel;
 use app\store\model\Store as StoreModel;
@@ -54,11 +55,29 @@ class Contact extends Controller
 
         return json_encode($list);
     }
+    public  function gettypelist (){
+        // 订单列表
+        $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
+
+        $model = new TypeIndexModel;
+        $this_user = Db::name('user')->where(['pid'=>$admin_info['user_id']])->column('user_id');
+        $modelList = $model->getLists($this->request->param(),$admin_info['user_id']);
+        // 自提门店列表
+        $this->assign('admin_info',$admin_info);
+
+
+        foreach ($modelList as $key => $value){
+            $list[$key]['type_id'] = $value['type_id'];
+            $list[$key]['type'] = $value['type'];
+        }
+
+        return json_encode($list);
+    }
     public  function getmodellist (){
         // 订单列表
         $brand = $this->getData();
         $brand_id = $brand['brand_id'];
-        $type = $brand['type'];
+        $type = $brand['type_id'];
         $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
 
         $model = new ModelIndexModel;
@@ -79,7 +98,7 @@ class Contact extends Controller
         // 订单列表
         $brand = $this->getData();
         $brand_id = $brand['brand_id'];
-        $type = $brand['type'];
+        $type = $brand['type_id'];
         $model_id = $brand['model_id'];
         $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
 
@@ -102,7 +121,7 @@ class Contact extends Controller
         // 订单列表
         $brand = $this->getData();
         $brand_id = $brand['brand_id'];
-        $type = $brand['type'];
+        $type = $brand['type_id'];
         $model_id = $brand['model_id'];
         $color = $brand['color_id'];
         $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
@@ -122,7 +141,7 @@ class Contact extends Controller
             $list[$key]['standard_inventory'] = $value['standard_inventory'];
             $list[$key]['now_inventory'] = $value['now_inventory'];
             $list[$key]['create_time'] = $value['create_time'];
-            $list[$key]['inventory'] = $list['standard_inventory'] - $list['now_inventory'];
+            $list[$key]['inventory'] = $value['standard_inventory'] - $value['now_inventory'];
         }
 
         return json_encode($list);
