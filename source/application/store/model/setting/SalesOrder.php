@@ -118,7 +118,7 @@ class SalesOrder extends BaseModel
      * @return bool
      * @throws \think\exception\DbException
      */
-    /* public function edit($data)
+     public function edit($data)
      {
          if ($this['user_name'] !== $data['user_name']
              && self::checkExist($data['user_name'])) {
@@ -151,7 +151,7 @@ class SalesOrder extends BaseModel
              $this->rollback();
              return false;
          }
-     }*/
+     }
 
     /**
      * 软删除
