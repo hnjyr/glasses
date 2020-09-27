@@ -95,7 +95,7 @@ class IndexModel extends BaseModel
                 ->where('contact_model.user_id','in',$arr)
                 ->where('contact_model.brand_id',$brand_id)
                 ->where('contact_model.is_delete',0)
-                ->where('contact_model.type',$type)
+                ->where('contact_model.type_id',$type)
                 ->order(['contact_model.create_time' => 'desc'])
                 ->paginate(10, false, [
                     'query' => \request()->request()

@@ -67,16 +67,16 @@ class IndexModel extends BaseModel
     }
 
 
-    public function getLists($query = [],$arr=[],$brand_id = null)
+    public function getLists($brand_id = null,$arr=[], $query = [])
     {
         // 检索查询条件
-//        dump($query);
-        !empty($query) && $this->setWhere($query);
+       
         // 获取数据列表
         if (!is_null($brand_id)){
+            // dump($brand_id);die();
             return $this
                 ->alias('contact_type')
-                ->field('contact_type.*,user.shop_name,contact_brand.brand_name')
+                ->field('contact_type.*,user.shop_name')
                 ->join('contact_brand','contact_brand.brand_id = contact_type.brand_id')
                 ->join('user', 'user.user_id = contact_type.user_id')
                 ->where('contact_type.user_id','in',$arr)
@@ -89,7 +89,7 @@ class IndexModel extends BaseModel
         }else{
             return $this
                 ->alias('contact_type')
-                ->field('contact_type.*,user.shop_name,contact_brand.brand_name')
+                ->field('contact_type.*,user.shop_name')
                 ->join('contact_brand','contact_brand.brand_id = contact_type.brand_id')
                 ->join('user', 'user.user_id = contact_type.user_id')
                 ->where('contact_type.user_id','in',$arr)

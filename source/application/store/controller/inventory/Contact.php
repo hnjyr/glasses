@@ -61,7 +61,9 @@ class Contact extends Controller
 
         $model = new TypeIndexModel;
         $this_user = Db::name('user')->where(['pid'=>$admin_info['user_id']])->column('user_id');
-        $modelList = $model->getLists($this->request->param(),$admin_info['user_id']);
+        $brand = $this->getData();
+        $brand_id = $brand['brand_id'];
+        $modelList = $model->getLists($brand_id,$admin_info['user_id']);
         // 自提门店列表
         $this->assign('admin_info',$admin_info);
 
