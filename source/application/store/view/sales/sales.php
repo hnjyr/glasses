@@ -19,7 +19,11 @@
         BASE_URL = '<?= isset($base_url) ? $base_url : '' ?>';
         STORE_URL = '<?= isset($store_url) ? $store_url : '' ?>';
     </script>
-
+    <style>
+        .thead th {
+            border-right: 1px solid #ddd;
+        }
+    </style>
 </head>
 
 <body data-type="">
@@ -191,7 +195,7 @@
                             <div class="order-list am-scrollable-horizontal am-u-sm-12 am-margin-top-xs">
                                 <table width="100%" class="am-table am-table-centered
                         am-text-nowrap am-margin-bottom-xs">
-                                    <thead>
+                                    <thead class="thead">
                                     <tr>
                                         <th width="12%">销售姓名</th>
 <!--                                        <th width="12%">店铺名</th>-->

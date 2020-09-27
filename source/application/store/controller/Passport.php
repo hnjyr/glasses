@@ -47,6 +47,7 @@ class Passport extends Controller
 
             $model = new UserModel();
             $data = $this->postData();
+            
             $data = $data['Register'];
             if ($data['shop_type'] == 0){
                 $data['type'] = 2;
@@ -55,13 +56,13 @@ class Passport extends Controller
             if ($data['shop_type'] == 1 && $data['type'] == 2){
                 $data['pid'] = 0;
             }
-//            dump($data);die();
+        //    dump($data);die();
             $result = Db::name('user')->where('username',$data['username'])->find();
             if($result){
                 return  $this->renderError("不能重复申请!");
             }
             $res = $model->add($data);
-//            dump($res);die();
+        //    dump($res);die();
             if($res){
                 return $this->renderSuccess("申请成功,等待审核!",url('index/index'));
             }
@@ -76,18 +77,26 @@ class Passport extends Controller
     }
     public function is_user(){
         $data = $this->request->post();
-        if (!$data['linkman'] || !$data['username'] || !$data['code'] || !$data['phone'] || !$data['password']){
+        if (!$data['linkman'] || !$data['code'] || !$data['phone'] || !$data['password']){
             return $this->renderError("请填写完整信息！");
         }
-        $code = Db::name('sms_code')->where('phone',$data['phone'])->order('create_time desc')->value('code');
-        if($code != $data['code']){
+
+        $code = Db::name('sms_code')->where('phone',$data['phone'])->order('create_time desc')->find();
+        if($code['code'] != $data['code']){
             return $this->renderError("验证码错误!",[]);
         }
-        $result = Db::name('user')->where('username',$data['username'])->find();
+        // dump(time() - 60);die;
+        if($code['create_time'] < (time() - 60)){
+            return $this->renderError("验证码已过期!",[]);
+        }
+        $result = Db::name('user')->where('username',$data['phone'])->find();
         $result1 = Db::name('user')->where('linkman',$data['linkman'])->find();
+        // dump($result);
+        // dump($result1);die;
         if($result || $result1){
             return  $this->renderError("不能重复申请!");
         }
+        return $this->renderSuccess('验证成功');
     }
     /**
      * 退出登录

@@ -188,7 +188,7 @@
 						</div>
 						
 						<div class="form-group">
-							<button id="btn-submit-register-x" type="submit">
+							<button id="btn-submit-register-x">
 								下一步
 							</button>
 						</div>
@@ -217,14 +217,14 @@
 							<img class="input_icon" src="assets/store/img/login/address.png" alt="" style="">
 							<input class="address_detail" name="Register[address_detail]" placeholder="请输入详细地址" type="text" required>
 						</div>
-						<div class="form-group" id='one'>
+						<!-- <div class="form-group" id='one'>
 							<img class="input_icon" src="assets/store/img/login/shop.png" alt="" style="">
 							<select class='select type' id="type" name="Register[shop_type]">
 								<option value ="请选择" style='color:#999;'>请选择</option>
 								<option value ="1">是</option>
 								<option value ="0">否</option>
 							</select>
-						</div>
+						</div> -->
 						<div class="form-group" style='display:none' id='two'>
 							<img class="input_icon" src="assets/store/img/login/shop.png" alt="" style="">
 							<select class='select type' id="div1" name="Register[type]">
@@ -252,19 +252,21 @@
 						<div id='box1' style='position: relative;height: 50px;'>
 							<!-- <div class="img_box1"></div> -->
 							<img alt="点击上传" id="faceImg"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="">
+                            <input type="hidden" id="img" name="Register[shop_img]">
 						</div>
 						<div class="form-group">
-							<img class="shop_img_icon input_icon" src="assets/store/img/login/shop_img.png" alt="" style="">
+                            <img class="shop_img_icon input_icon" src="assets/store/img/login/shop_img.png" alt="" style="">
 							<div class='div' class="shop_img" disable name="Register[shop_img]" placeholder="" type="password" required>请上传店面图片</div>
 						</div>
 						<!-- 营业执照 -->
 						<div id='box2' style='position: relative;height: 50px'>
-							<div class="img_box2"></div>
+                            <div class="img_box2"></div>
 							<img alt="点击上传" id="faceImg2"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="">
+                            <input type="hidden" id="img1" name="Register[bussiness_img]">
 						</div>
 						<div class="form-group">
-							<img class="input_icon" src="assets/store/img/login/idcard.png" alt="" style="">
-							<div class='div' class="bussiness_img" disable name="Register[bussiness_img]" placeholder="请上传营业执照" type="password" required>请上传营业执照图片</div>
+                            <img class="input_icon" src="assets/store/img/login/idcard.png" alt="" style="">
+							<div class='div' class="bussiness_img" disable placeholder="请上传营业执照" type="password" required>请上传营业执照图片</div>
 						</div>
 						<div class="form-group">
 							<button id="btn-submit-register" type="submit">
@@ -316,10 +318,13 @@
     })
 	$('.brand-text').click(function() {
 		// console.log(1)
-		$('.register-form').addClass('form_move')
-	})
+		// $('.register-form').addClass('form_move')
+    })
+    function isPhone(str) {
+        let reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/;
+        return reg.test(str);
+    }
 	$('#btn-submit-register-x').click(function() {
-		// console.log(1)
         var phone = $('#phone').val();
         var code = $('#code').val();
         var linkman = $('.username').val();
@@ -327,7 +332,16 @@
         var password1 = $('.password1').val();
 
         if (password != password1){
-            alert("两次密码不一致！")
+            layer.msg('两次密码不一致！');
+            return false;
+        }
+        if(!(phone&&linkman&&password&&password1&&code)) {
+            layer.msg('请填写完整！',{time: 1000, anim: 1});
+            return false;
+        }
+        if(!isPhone(phone)) {
+            layer.msg('请输入正确的手机号！');
+            return false;
         }
         $.ajax({
             url:"index.php?s=/store/passport/is_user",
@@ -335,10 +349,11 @@
             data: {phone:phone,code:code,linkman:linkman,password:password},
             success: function(data) {
                 if(data.code == 1){
-                    layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                    $('.register-form').addClass('form_move')
+                    layer.msg(data.msg, {time: 1000, anim: 1}, function () {
                     });
                 }else{
-                    layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                    layer.msg(data.msg, {time: 1000, anim: 1}, function () {
                     });
                 }
             },
@@ -346,13 +361,32 @@
                 alert("发送失败！")
             }
         });
-
-	})
+        return false;
+    })
+    let timer;
+    let sends = 60;
+    let codeFlag = true;
     $('#send_code').click(function() {
-        // console.log(2)
+        if(!codeFlag) {
+            return false;
+        }
         var phone = $('#phone').val();
         var code = $('#code').val();
-        $('#send_code').attr("disabled",true);
+        if(!isPhone(phone)) {
+            layer.msg('请输入正确的手机号！');
+            return false;
+        }
+        timer = setInterval(function() {
+            sends--;
+            $('#send_code').text(`${sends}s后再次获取`)
+            if(sends == 1) {
+                sends = 60;
+                codeFlag = true;
+                $('#send_code').text(`获取验证码`);
+                clearInterval(timer);
+            }
+        },1000)
+        codeFlag = false;
         if(phone.trim()!=''){
             $.ajax({
                 url:"index.php?s=/api/salesman.index/smscode",
@@ -360,28 +394,27 @@
                 data: {phone:phone},
                 success: function(data) {
                     if(data.code == 1){
-                        layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                        layer.msg(data.msg, {time: 1000, anim: 1}, function () {
                         });
                     }else{
-                        layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                        layer.msg(data.msg, {time: 1000, anim: 1}, function () {
                         });
                     }
                 },
                 error:function(err) {
-                    alert("发送失败！")
+                    layer.msg('网络错误')
                 }
             });
         } else{
-            layer.msg('请输入手机号', {time: 1500, anim: 1}, function () {
+            layer.msg('请输入手机号', {time: 1000, anim: 1}, function () {
             });
         }
-        console.log(phone);
-
     })
     $('#btn-submit-register').click(function(){
 		var show=$('#show').text()
-		var img=$('#img')[0]
-		var img1=$('#img1')[0]
+		var img=$('#img').val();
+        var img1=$('#img1').val();
+        
         if(show!=''){
            if(img!=undefined&&img1!=undefined){
             var value=$("#phone").val()
@@ -464,7 +497,8 @@
                 var html=$("<img id='img' name='Register[shop_img]' src=" + file_path + " style=' width:80px;height:80px;'>" +
                     "<input name='Register[shop_img]' value='"+ file_path +"' type='text' style='display: none;z-index: -99;'>");
                 // $('.img_box1').html(html);
-				$('#faceImg').attr('src',file_path)
+                $('#faceImg').attr('src',file_path)
+                $('#img').val(file_path)
             },
             error:function(err) {
                 alert("上传失败")
@@ -491,6 +525,7 @@
                     "<input name='Register[bussiness_img]' value='"+ file_path +"' type='text' style='display: none;z-index: -99;'>");
                 // $('.img_box2').html(html);
 				$('#faceImg2').attr('src',file_path)
+				$('#img1').val(file_path)
             },
             error:function(err) {
                 alert("上传失败")

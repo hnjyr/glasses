@@ -138,8 +138,8 @@
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-u-lg-2 am-form-label form-require"> 电话 </label>
                                         <div class="am-u-sm-9 am-u-end">
-                                            <input type="text" class="tpl-form-input" name="user[username]"
-                                                   placeholder="请输入电话" value="<?= $model['username'] ?>" required>
+                                            <input type="text" id="user_name" class="tpl-form-input" name="user[username]"
+                                                   placeholder="请输入电话" οnkeyup="value=value.replace(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/,'')" maxlength="11" value="<?= $model['username'] ?>" required>
                                         </div>
                                     </div>
                                     <div class="am-form-group">
@@ -259,7 +259,7 @@
                                     </div>
                                     <div class="am-form-group">
                                         <div class="am-u-sm-9 am-u-sm-push-3 am-margin-top-lg">
-                                            <button type="submit" class="j-submit am-btn am-btn-secondary">提交
+                                            <button type="submit" id="sub_mit" class="j-submit am-btn am-btn-secondary">提交
                                             </button>
                                         </div>
                                     </div>
@@ -311,7 +311,17 @@
                  * 表单验证提交
                  * @type {*}
                  */
-                $('#my-form').superForm();
+                function isPhone(str) {
+                    let reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/;
+                    return reg.test(str);
+                }
+                $('#sub_mit').click(function() {
+                    if(!isPhone($('#user_name').val())) {
+                        layer.msg('手机号格式错误')
+                        return false;
+                    }
+                    $('#my-form').superForm();
+                })
             });
         </script>
     </div>

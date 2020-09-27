@@ -30,6 +30,7 @@ class User extends StoreUserModel
 //        dump($data['user_name']);die();
         if ($data['user_name'] != 'admin'){
             $userinfo =  Db::name('user')->where('username',$data['user_name'])->find();
+            $userinfo =  Db::name('user')->where('linkman',$data['user_name'])->find();
             if (!$userinfo){
                 $this->error = '登录失败, 用户不存在！';
                 return false;
@@ -79,7 +80,7 @@ class User extends StoreUserModel
     private function getLoginUser($user_name, $password)
     {
         return self::useGlobalScope(false)->with(['wxapp'])->where([
-            'mobile' => $user_name,
+            'user_name' => $user_name,
 //             'password' => yoshop_hash($password),
             'is_delete' => 0
         ])->find();

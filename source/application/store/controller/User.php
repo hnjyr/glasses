@@ -64,10 +64,10 @@ class User extends Controller
         try{
             DB::startTrans();
             $user_info = Db::name('user')->find($data['id']);
-            $store_user_arr['user_name'] = $user_info['username'];
+            $store_user_arr['user_name'] = $user_info['linkman'];
             $store_user_arr['mobile'] = $user_info['mobile'];
             $store_user_arr['password'] = yoshop_hash($data['password']);
-            $store_user_arr['real_name'] = '测试';
+            $store_user_arr['real_name'] = $user_info['linkman'];
             $store_user_arr['is_super'] = 0;
             $store_user_arr['user_id'] = $user_info['user_id'];
             $store_user_arr['province_id'] = $user_info['province_id'];
@@ -186,7 +186,8 @@ class User extends Controller
     public function agree($user_id)
     {
         $model = UserModel::detail($user_id);
-        if (!$model->setAgree()) {
+        // dump($model);die;
+        if (!$model->setAgree($model['linkman'],$model['username'])) {
             return $this->renderError($model->getError() ?: '审核失败');
         }
 

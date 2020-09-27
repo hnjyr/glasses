@@ -204,8 +204,10 @@ class User extends UserModel
      * 通过
      * @return false|int
      */
-    public function setAgree()
+    public function setAgree($user_id,$mobile)
     {
+        
+        // dump($res);die;
         return $this->save(['status' => 1]);
     }
 
