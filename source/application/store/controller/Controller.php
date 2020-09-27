@@ -38,6 +38,7 @@ class Controller extends \think\Controller
         'passport/login',
         'passport/register',
         'new_order/list',
+        'passport/is_user',
         'wxapp.index/index',
         'wxapp.index/login',
         'wxapp.index/smscode',
@@ -53,6 +54,7 @@ class Controller extends \think\Controller
         // 登录页面
         'passport/login',
         'passport/register',
+        'passport/is_user',
         'inventory.other/getmodellist',
         'inventory.other/getspeclist',
 
