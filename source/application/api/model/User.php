@@ -199,6 +199,7 @@ class User extends UserModel
      */
     public function add($data)
     {
+//        dump($data);die();
         if(!$data['linkman']){
             $this->error= '姓名不能为空!';
             return $this->error;
