@@ -104,7 +104,7 @@ class SalesModel extends BaseModel
             return false;
         }
         $data['user_id'] = $user_id;
-        $data['created_time'] = time();
+        $data['created_time'] = strtotime($data['data']['created_time']);
         /*$this->startTrans();
         try {
 
@@ -122,7 +122,8 @@ class SalesModel extends BaseModel
                 [
                     'sales_name'=>$data['sales_name'],
                     'mobile'=>$data['mobile'],
-                    'type'=>$data['type']
+                    'type'=>$data['type'],
+                    'created_time' => $data['created_time']
                 ]
             );
 //        dump($res);die();
