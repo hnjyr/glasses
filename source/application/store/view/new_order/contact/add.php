@@ -543,6 +543,11 @@
             dropdownAutoWidth : true,
             width: '568'
         });
+				 $('.selectpicker1').select2({
+            allowClear: true,
+            dropdownAutoWidth : true,
+            width: '240'
+        });
     })
 </script>
 
@@ -582,4 +587,3 @@
         }
     });
 </script>
-

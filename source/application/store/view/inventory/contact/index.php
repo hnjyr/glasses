@@ -192,7 +192,7 @@
                 <div style='text-align: center;flex:1;'>品牌</div>
                 <div style='text-align: center; flex:1;'>规格</div>
                 <div style='text-align: center; flex:1;'>型号</div>
-                <div style='text-align: center; flex:1;'>色号</div>
+                <div style='text-align: center; flex:1;'>颜色</div>
             </div>
 
             <el-cascader-panel v-model="partyOrganId" :props="prop" :show-all-levels="false" @change="handleChange" @expand-change='change1'>
@@ -278,7 +278,7 @@
                     <input type="text" placeholder="请输入库存数" v-model='inventory'>
                 </div>
                 <div class="line" v-if='status==2'>
-                    <span>色号:</span>
+                    <span>颜色:</span>
                     <input type="text" placeholder="请输入颜色" v-model='color'>
                 </div>
                 <div class="line" v-if='status==5||status==6'>

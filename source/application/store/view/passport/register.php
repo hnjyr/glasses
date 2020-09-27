@@ -38,16 +38,12 @@
             -webkit-box-shadow: none;
             box-shadow: none;
             width: 356px;
-            border: 1px solid #651BCF;
+            border-bottom: 1px solid #651BCF;
             background: #F2F2F2;
-            border-left: none;
-            border-right: none;
-            border-top: none;
             font-size: 20px;
             height: 40px;
             line-height: 1.5;
-            margin: auto;
-            margin-left: 100px;
+            margin-left: 10px;
             outline: none;
             padding: 0 4px;
             color: #000;
@@ -66,16 +62,12 @@
             -webkit-box-shadow: none;
             box-shadow: none;
             width: 356px;
-            border: 1px solid #651BCF;
+            border-bottom: 1px solid #651BCF;
             background: #F2F2F2;
-            border-left: none;
-            border-right: none;
-            border-top: none;
             font-size: 20px;
             height: 40px;
             line-height: 1.5;
-            margin: auto;
-            margin-left: 100px;
+            margin-left: 10px;
             outline: none;
             padding: 0 4px;
             color: #a3afb7;
@@ -103,16 +95,12 @@
             -webkit-box-shadow: none;
             box-shadow: none;
             width: 356px;
-            border: 1px solid #651BCF;
+            border-bottom: 1px solid #651BCF;
             background: #F2F2F2;
-            border-left: none;
-            border-right: none;
-            border-top: none;
             font-size: 20px;
             height: 40px;
             line-height: 1.5;
-            margin: auto;
-            margin-left: 100px;
+            margin-left: 10px;
             outline: none;
             padding: 0 4px;
             color: #000;
@@ -137,114 +125,144 @@
             -webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
         }
 		.register-body {
-			height: 831px;
+			padding: 30px 60px 0;
+			height: auto;
+			width: auto;
+		}
+		.container {
+			/* text-align: left; */
 		}
 		#btn-submit-register {
 			margin-top: 20px;
 		}
+		
     </style>
 </head>
 <body class="page-login-v3">
 <div class="container">
     <div id="wrapper" class="register-body">
         <div class="register-content">
-            <div class="brand">
+            <div class="brand brand_top">
                 <img alt="logo" class="brand-img" src="assets/store/img/login/logo.png?v=<?/*= $version */?>" >
-                <p class="brand-text">欢迎注册</p>
-                <p class="brand-login">已有账号？<a href="index.php?s=/store/passport/login">登录</a></p>
+                <div class="brand_info">
+					<p class="brand-text">欢迎注册</p>
+					<p class="brand-login">已有账号？<a href="index.php?s=/store/passport/login">登录</a></p>
+				</div>
             </div>
-            <form id="register-form"  class="register-form" onsubmit="return false;">
-                <div class="form-group">
-                    <i><img class="input_icon" src="assets/store/img/login/username.png" alt="" style=""></i>
-                    <input  class="username" name="Register[linkman]" placeholder="请输入用户名" type="text" required >
-                </div>
-                <div class="form-group">
-                    <i><img class="input_icon" src="assets/store/img/login/phone.png" alt="" style=""></i>
-                    <input id='phone' class="phone" name="Register[username]" maxlength='11' placeholder="请输入手机号" type="text" required >
-                </div>
-                <div class="form-group">
-                    <i><img class="input_icon" src="assets/store/img/login/shop.png" alt="" style=""></i>
-                    <input class="phone" name="Register[shop_name]" placeholder="请输入店铺名称" type="text" required >
-                </div>
-                <div class="form-group">
-                    <i><img class="input_icon" src="assets/store/img/login/password.png" alt="" style=""></i>
-                    <input  class="password" name="Register[password]" placeholder="请输入密码" type="password" required >
-                </div>
-
-                <div class="form-group">
-                    <i><img class="input_icon" src="assets/store/img/login/address.png" alt="" style=""></i>
-                    <div class="info address">
-                        <div style='height:100%;'>
-                            <select style='height:100%;' id="s_province" name="Register[province_id]"></select>  
-                            <select style='height:100%;' id="s_city" name="Register[city_id]" ></select>  
-                            <select style='height:100%;' id="s_county" name="Register[region_id]"></select>
-                            <script  class="resources library" src="js/area.js" type="text/javascript"></script>
-                            <script type="text/javascript">_init_area();</script>
-                        </div>
-                        <div id='show' style='display:none;'></div>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <i><img class="input_icon" src="assets/store/img/login/address.png" alt="" style=""></i>
-                    <input class="address_detail" name="Register[address_detail]" placeholder="请输入详细地址" type="text" required>
-                </div>
-                <div class="form-group" id='one'>
-                    <i><img class="input_icon" src="assets/store/img/login/shop.png" alt="" style=""></i>
-                    <select class='select type' id="type" name="Register[shop_type]">
-                        <option value ="请选择" style='color:#999;'>请选择</option>
-                        <option value ="1">是</option>
-                        <option value ="0">否</option>
-                    </select>
-                </div>
-                <div class="form-group" style='display:none' id='two'>
-                    <i><img class="input_icon" src="assets/store/img/login/shop.png" alt="" style=""></i>
-                    <select class='select type' id="div1" name="Register[type]">
-                        <option value ="请选择" style='color:#999;'>请选择</option>
-                        <option value ="1">分店</option>
-                        <option value ="2">总店</option>
-                    </select>
-                </div>
-                <div class="form-group" style='display:none' id='three'>
-                    <i><img class="input_icon" src="assets/store/img/login/shop.png" alt="" style=""></i>
-                    <select class='select type' id="div2" name="Register[pid]">
-                        <option value ="请选择">请选择</option>
-                        <?php  foreach ($fatherLsit as $item): ?>
-                            <option value="<?= $item['user_id'] ?>"><?= $item['shop_name'] ?></option>
-                        <?php endforeach;?>
-                    </select>
-                    <!-- <input class="pid" name="Register[pid]" placeholder="请选择总店" id='zhongdina'  type="text" list="pidList" required>
-                    <datalist id="pidList">
-                    <?php  foreach ($fatherLsit as $item): ?>
-                        <option><?= $item['shop_name'] ?></option>
-                    <?php endforeach;?>
-                    </datalist> -->
-                </div>
-                <!-- 店面照片 -->
-                <div id='box1' style='position: relative;height: 50px;'>
-					<!-- <div class="img_box1"></div> -->
-                    <img alt="点击上传" id="faceImg"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="" style='width:80px;height:80px;margin-left:70px;position: absolute;top:9px;'>
-                </div>
-                <div class="form-group">
-                    <i><img class="shop_img_icon input_icon" src="assets/store/img/login/shop_img.png" alt="" style=""></i>
-                    <div class='div' class="shop_img" disable name="Register[shop_img]" placeholder="" type="password" required>请上传店面图片</div>
-                </div>
-                <!-- 营业执照 -->
-                <div id='box2' style='position: relative;height: 50px'>
-					<div class="img_box2"></div>
-                    <img alt="点击上传" id="faceImg2"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="" style='width:80px;height:80px;margin-left:70px;position: absolute;top:9px;'>
-                </div>
-                <div class="form-group">
-                    <i><img class="input_icon" src="assets/store/img/login/idcard.png" alt="" style=""></i>
-                    <div class='div' class="bussiness_img" disable name="Register[bussiness_img]" placeholder="请上传营业执照" type="password" required>请上传营业执照图片</div>
-                </div>
-                <div class="form-group">
-                    <button id="btn-submit-register" type="submit">
-                        确认提交
-                    </button>
-                </div>
-            </form>
+            <div class="form_box">
+				<form id="register-form"  class="register-form" onsubmit="return false;">
+					<div class="first_form">
+						<div class="form-group group_img1">
+							<img class="input_icon" src="assets/store/img/login/username.png" alt="" style="">
+							<input  class="username" name="Register[linkman]" placeholder="请输入用户名" type="text" required >
+						</div>
+						<div class="form-group">
+							<img class="input_icon" src="assets/store/img/login/password.png" alt="" style="">
+							<input  class="password" name="Register[password]" placeholder="请输入密码" type="password" required >
+						</div>
+						<div class="form-group">
+							<img class="input_icon" src="assets/store/img/login/password.png" alt="" style="">
+							<input  class="password1" name="Register[password1]" placeholder="请再次输入密码" type="password" required >
+						</div>
+						<div class="form-group">
+							<img class="input_icon" src="assets/store/img/login/phone.png" alt="" style="">
+							<input id='phone' class="phone" name="Register[username]" maxlength='11' placeholder="请输入手机号" type="phone" required >
+						</div>
+						<div class="form-group form_code" >
+							<img class="input_icon" src="assets/store/img/login/code.png" alt="" style="">
+							<div class="code_form">
+								<input id='code' class="code" name="Register[code]" maxlength='4' placeholder="请输入验证码" type="text" required >
+								<div class="code_text">获取验证码</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<button id="btn-submit-register-x" type="submit">
+								下一步
+							</button>
+						</div>
+					</div>
+					<div class="sec_form">
+						<div class="form-group">
+							<img class="input_icon" src="assets/store/img/login/shop.png" alt="" style="">
+							<input class="phone" name="Register[shop_name]" placeholder="请输入店铺名称" type="text" required >
+						</div>
+						<div class="form-group">
+							<img class="input_icon" src="assets/store/img/login/address.png" alt="" style="">
+							<div class="info address">
+								<div style='height:100%;'>
+									<select style='height:100%;' id="s_province" name="Register[province_id]"></select>  
+									<select style='height:100%;' id="s_city" name="Register[city_id]" ></select>  
+									<select style='height:100%;' id="s_county" name="Register[region_id]"></select>
+									<script  class="resources library" src="js/area.js" type="text/javascript"></script>
+									<script type="text/javascript">_init_area();</script>
+								</div>
+								<div id='show' style='display:none;'></div>
+							</div>
+						</div>
+				
+				
+						<div class="form-group">
+							<img class="input_icon" src="assets/store/img/login/address.png" alt="" style="">
+							<input class="address_detail" name="Register[address_detail]" placeholder="请输入详细地址" type="text" required>
+						</div>
+						<div class="form-group" id='one'>
+							<img class="input_icon" src="assets/store/img/login/shop.png" alt="" style="">
+							<select class='select type' id="type" name="Register[shop_type]">
+								<option value ="请选择" style='color:#999;'>请选择</option>
+								<option value ="1">是</option>
+								<option value ="0">否</option>
+							</select>
+						</div>
+						<div class="form-group" style='display:none' id='two'>
+							<img class="input_icon" src="assets/store/img/login/shop.png" alt="" style="">
+							<select class='select type' id="div1" name="Register[type]">
+								<option value ="请选择" style='color:#999;'>请选择</option>
+								<option value ="1">分店</option>
+								<option value ="2">总店</option>
+							</select>
+						</div>
+						<div class="form-group" style='display:none' id='three'>
+							<img class="input_icon" src="assets/store/img/login/shop.png" alt="" style="">
+							<select class='select type' id="div2" name="Register[pid]">
+								<option value ="请选择">请选择</option>
+								<?php  foreach ($fatherLsit as $item): ?>
+									<option value="<?= $item['user_id'] ?>"><?= $item['shop_name'] ?></option>
+								<?php endforeach;?>
+							</select>
+							<!-- <input class="pid" name="Register[pid]" placeholder="请选择总店" id='zhongdina'  type="text" list="pidList" required>
+							<datalist id="pidList">
+							<?php  foreach ($fatherLsit as $item): ?>
+								<option><?= $item['shop_name'] ?></option>
+							<?php endforeach;?>
+							</datalist> -->
+						</div>
+						<!-- 店面照片 -->
+						<div id='box1' style='position: relative;height: 50px;'>
+							<!-- <div class="img_box1"></div> -->
+							<img alt="点击上传" id="faceImg"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="">
+						</div>
+						<div class="form-group">
+							<img class="shop_img_icon input_icon" src="assets/store/img/login/shop_img.png" alt="" style="">
+							<div class='div' class="shop_img" disable name="Register[shop_img]" placeholder="" type="password" required>请上传店面图片</div>
+						</div>
+						<!-- 营业执照 -->
+						<div id='box2' style='position: relative;height: 50px'>
+							<div class="img_box2"></div>
+							<img alt="点击上传" id="faceImg2"  οnclick="toUpload()" class="upload_shop_img" src="assets/store/img/login/upload.png" alt="">
+						</div>
+						<div class="form-group">
+							<img class="input_icon" src="assets/store/img/login/idcard.png" alt="" style="">
+							<div class='div' class="bussiness_img" disable name="Register[bussiness_img]" placeholder="请上传营业执照" type="password" required>请上传营业执照图片</div>
+						</div>
+						<div class="form-group">
+							<button id="btn-submit-register" type="submit">
+								确认提交
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
         </div>
     </div>
 </div>
@@ -285,7 +303,13 @@
             $('#three').find("option:selected").attr("selected", false);
         }
     })
-
+	$('.brand-text').click(function() {
+		console.log(1)
+		$('.register-form').addClass('form_move')
+	})
+	$('btn-submit-register-x').click(function() {
+		console.log(1)
+	})
     $('#btn-submit-register').click(function(){
 		var show=$('#show').text()
 		var img=$('#img')[0]

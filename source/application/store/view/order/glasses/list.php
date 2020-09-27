@@ -8,9 +8,20 @@
     .layui-form{
         margin-left: 20px;
     }
+		.table td {
+			min-width: 70px;
+			padding: 8px 0;
+			text-align: center;
+		}
+		.h2 {
+			position: relative;
+			top: 30px;
+			margin-top: 20px;
+			}
+		}
 </style>
 <div class="layui-form">
-    <h2>
+    <h2 class="h2">
         <span>配镜</span>
         <!--<span>治疗</span>-->
         <span>保健</span>
@@ -19,11 +30,12 @@
         <span>关注公众号</span>
         <span>查询配镜信息</span>
     </h2>
-    <table border="1" lay-size="sm" >
+    <table border="1" lay-size="sm" class="table">
+			<caption align="top" style="position:relative;top:-35px;font-weight: 600;font-size: 30px;">我是表格标题</caption>
         <tbody>
         <tr class="layui-table-cell">
-            <td >客户全名</td>
-            <td ><?= $list['user_name'] ?></td>
+            <td >姓名</td>
+            <td colspan="2"><?= $list['user_name'] ?></td>
             <td >性别</td>
             <?php if($list['sex'] == 1) :?>
                 <td>
@@ -36,14 +48,14 @@
                 </td>
             <?php endif;?>
             <td >年龄</td>
-            <td ><?= $list['years'] ?></td>
-            <td ">手机</td>
-            <td ><?= $list['mobile'] ?></td>
-            <td >日期</td>
-            <td colspan="3"><?= date('Y-m-d',$list['create_time']) ?></td>
+            <td colspan="2"><?= $list['years'] ?></td>
+            <td >电话</td>
+            <td colspan="3"><?= $list['mobile'] ?></td>
+            <!-- <td >日期</td>
+            <td colspan="3"><?= date('Y-m-d',$list['create_time']) ?></td> -->
         </tr>
         <tbody>
-        <tr class="layui-table-cell">
+        <!-- <tr class="layui-table-cell">
             <td>生日</td>
             <td><?= $list['birthday'] ?></td>
             <td width="30">订单号</td>
@@ -56,8 +68,44 @@
             <td ><?= $list['working'] ?></td>
             <td >收银员</td>
             <td ><?= $list['cash'] ?></td>
-        </tr>
-        <tr class="layui-table-cell">
+        </tr> -->
+				<tr class="layui-table-cell">
+					<td rowspan="3">配镜<br/>光度</td>
+					<td colspan="2">球镜</td>
+					<td>柱镜</td>
+					<td>轴位</td>
+					<td>ADD</td>
+					<td>瞳高</td>
+					<td>棱镜</td>
+					<td>矫正视力</td>
+					<td colspan="2">瞳距</td>
+					<td>备注</td>
+					
+				</tr>
+				<tr class="layui-table-cell">
+					<td>左</td>
+					<td>柱镜</td>
+					<td>柱镜</td>
+					<td>轴位</td>
+					<td>ADD</td>
+					<td>瞳高</td>
+					<td>棱镜</td>
+					<td>矫正视力</td>
+					<td colspan="2" rowspan="2">瞳距</td>
+					<td colspan="2" rowspan="2">备注</td>
+				</tr>
+				<tr class="layui-table-cell">
+					<td>右</td>
+					<td>柱镜</td>
+					<td>柱镜</td>
+					<td>轴位</td>
+					<td>ADD</td>
+					<td>瞳高</td>
+					<td>棱镜</td>
+					<td>矫正视力</td>
+					
+				</tr>
+        <!-- <tr class="layui-table-cell">
             <td>经手人</td>
             <td><?= $list['handle'] ?></td>
             <td colspan="3">执行标准:<?= $list['standard'] ?></td>
@@ -70,35 +118,44 @@
             <td>检验员</td>
             <td colspan="4"><?= $list['inspectors'] ?></td>
 
-        </tr>
+        </tr> 
         <tr class="layui-table-cell">
             <td colspan="2">说明</td>
             <td colspan="10"><?= $list['notes'] ?></td>
 
-        </tr>
+        </tr>-->
         <tr class="layui-table-cell">
-            <td>型号</td>
-            <td colspan="6">商品全名</td>
+            <td>序号</td>
+            <td>类别</td>
+            <td colspan="5">商品全名</td>
             <td>单位</td>
-            <td colspan="2">数量</td>
-            <td colspan="2">价格</td>
+            <td>数量</td>
+            <td>价格</td>
+            <td>金额</td>
+            <td>积分</td>
 
-        </tr>
+        </tr> 
         <tr class="layui-table-cell">
             <td>1</td>
-            <td colspan="6">右眼：<?= $list['right_frame'] ?></td>
+            <td>右眼</td>
+            <td colspan="5"><?= $list['right_frame'] ?></td>
             <td>片</td>
-            <td colspan="2"><?= $list['right_frame_num'] ?></td>
-            <td colspan="2"><?= $list['right_frame_price'] ?></td>
+            <td><?= $list['right_frame_num'] ?></td>
+            <td><?= $list['right_frame_price'] ?></td>
+            <td><?= $list['right_frame_price'] ?></td>
+            <td><?= $list['right_frame_price'] ?></td>
         </tr>
         <tr class="layui-table-cell">
             <td>2</td>
-            <td colspan="6">左眼：<?= $list['left_frame'] ?></td>
+            <td>左眼</td>
+            <td colspan="5"><?= $list['left_frame'] ?></td>
             <td>片</td>
-            <td colspan="2"><?= $list['left_frame_num'] ?></td>
-            <td colspan="2"><?= $list['left_frame_price'] ?></td>
+            <td><?= $list['left_frame_num'] ?></td>
+            <td><?= $list['left_frame_price'] ?></td>
+            <td><?= $list['left_frame_price'] ?></td>
+            <td><?= $list['left_frame_price'] ?></td>
         </tr>
-        <tr class="layui-table-cell">
+        <!-- <tr class="layui-table-cell">
             <td>3</td>
             <td colspan="6">眼镜盒</td>
             <td>个</td>
@@ -125,16 +182,15 @@
             <td>副</td>
             <td colspan="2"><?= $list['glasses_other_num'] ?></td>
             <td colspan="2"><?= $list['glasses_other_price'] ?></td>
-        </tr>
+        </tr> -->
         <tr class="layui-table-cell">
-            <td>合计数量</td>
-            <td colspan="2"><?= $list['right_frame_num'] +  $list['left_frame_num'] + $list['glasses_case_num'] + $list['right_glasses_cloth_num']+ $list['glasses_les_num']+ $list['glasses_other_num']?></td>
-            <td>合计金额</td>
-            <td colspan="2"><?= $list['total'] ?></td>
-            <td>折扣金额</td>
-            <td colspan="2"><?= $list['discount'] ?></td>
-            <td>实收金额</td>
-            <td colspan="2"><?= $list['pay_total'] ?></td>
+            <td>合计</td>
+            <td colspan="6"><?= $list['pay_total'] ?></td>
+            <td><?= $list['right_frame_num'] +  $list['left_frame_num'] + $list['glasses_case_num'] + $list['right_glasses_cloth_num']+ $list['glasses_les_num']+ $list['glasses_other_num']?></td>
+            <td><?= $list['total'] ?></td>
+            <td><?= $list['discount'] ?></td>
+            <td></td>
+            <td colspan="2"></td>
         </tr>
         </tbody>
     </table>
@@ -144,20 +200,20 @@
     <table border="0" lay-size="sm" style='margin-top:20px;'>
         <tbody>
         <tr class="layui-table-cell">
-            <!--<td colspan="1" width='65px'>销量:</td>
-            <td colspan="2" width='130px'></td>-->
+            <td colspan="1" width='65px'>销量:</td>
+            <td colspan="1" width='100px'></td>
             <td colspan="1" width='65px'>验光:</td>
-            <td colspan="2" width='130px'><?= $list['optometry'] ?></td>
+            <td colspan="1" width='100px'><?= $list['optometry'] ?></td>
             <td colspan="1" width='65px'>加工:</td>
-            <td colspan="2" width='130px'><?= $list['working'] ?></td>
+            <td colspan="1" width='100px'><?= $list['working'] ?></td>
             <td colspan="1" width='65px'>收银:</td>
-            <td colspan="2" width='130px'><?= $list['cash'] ?></td>
+            <td colspan="1" width='100px'><?= $list['cash'] ?></td>
         </tr>
         <tr class="layui-table-cell" >
             <td colspan="4"  width='65px'>详细地址：<?= $list['addr'] ?></td>
-            <td colspan="3.5"  width='65px'>联系电话:<?= $list['mobile'] ?></td>
-            <td colspan="2.5"  width='65px'>日期:<?= date("Y-m-d",$list['create_time']) ?></td>
-            <td><img src="assets/admin/img/test.png" alt="" height="100px" style='position: relative; top: -43px;'></td>
+            <td colspan="3"  width='65px'>联系电话:<?= $list['mobile'] ?></td>
+            <td colspan="2"  width='65px'>日期:<?= date("Y-m-d",$list['create_time']) ?></td>
+            <td><img src="assets/admin/img/test.png" alt="" height="100px" style='position: relative; top: -43px;left:75px;'></td>
         </tr>
         </tbody>
     </table>

@@ -66,8 +66,8 @@
     }
     $('#btn-submit').click(function() {
         var value=$("#phone").val()
-        var flag=that.isPhone(value)
-        if(flag&&value!=''){
+        // var flag=that.isPhone(value)
+        if(value!=''){
             var $form = $('#login-form');
             $form.submit(function () {
                 var $btn_submit = $('#btn-submit');

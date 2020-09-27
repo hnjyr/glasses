@@ -1,23 +1,23 @@
 <?php
 
 // 数据库配置
-$config = [
-    'host' => 'localhost',
-    'database' => 'newglasses',
-    'username' => 'root',
-    'password' => 'root',
-    'port' => '3306',
-    'charset' => 'utf8',
-];
 // $config = [
-//     'host' => 'localhost',
+//     'host' => '47.92.35.59',
 //     'database' => 'newglasses',
 //     'username' => 'newglasses',
 //     'password' => 'd84kGezpGeeXcNE4',
 //     'port' => '3306',
 //     'charset' => 'utf8',
 // ];
-//
+$config = [
+    'host' => '127.0.0.1',
+    'database' => 'newglasses',
+    'username' => 'newglasses',
+    'password' => 'd84kGezpGeeXcNE4',
+    'port' => '3306',
+    'charset' => 'utf8',
+];
+
 
 return [
     // 数据库类型

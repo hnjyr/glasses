@@ -276,68 +276,62 @@ html, body {
 
 .register-content {
 }
-
-.register-content .brand .brand-img {
+.brand_top {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 30px;
+}
+.register-content .brand_top .brand-img {
     width: 67px;
     height: 59px;
-    position: absolute;
-    left: 51px;
-    top: 39px;
-
+	margin-top: 12px;
+	margin-right: 8px;
 }
-
-.register-content .brand .brand-text {
-    margin-top: 25px;
-    margin-left: 144px;
-    width: 131px;
-    height: 29px;
-    /*font-family: PingFang SC;!important;*/
-    /*font-weight: bold;*/
+.register-content .brand_top .brand-text {
     color: #4B31B8;
     line-height: 50px;
-    /*margin-bottom: 11px;*/
-    font-size: 30px !important;
+    font-size: 30px;
     text-shadow: rgba(0, 0, 0, .15) 0 0 1px;
 
 }
-.register-content .brand .brand-login{
-    width: 116px;
-    height: 15px;
+.register-content .brand_top .brand-login{
     font-size: 16px;
-    /*font-family: PingFang SC;!important;*/
-    /*font-weight: bold;*/
     color: #989898;
-    line-height: 50px;
-    margin-top: 1px;
-    margin-left: 145px;
 }
-.register-content .brand .brand-login a{
+.register-content .brand_top .brand-login a{
     text-decoration: none;
     color: blue;
 }
 
 .register-form {
-    margin: 45px 0 30px;
-    position: absolute;
+    display: flex;
+	width: 850px;
+	transition: all 1s;
+	transform: translateX(0);
 }
-
+.form_move {
+	transform: translateX(-410px);
+}
+.first_form {
+	margin-right: 20px;
+}
 .register-form .form-group {
     margin: 10px 0;
 }
-.register-form i .input_icon{
-    position: relative;
-    left:90px;
-    top: 15px;
+.register-form .input_icon{
     width: 23px;
 }
-i .upload_shop_img{
-    width: 115px;
-    height: 74.5px;
-    position: relative;
-    right: -150px;
-    top: 40px;
-
+.upload_shop_img{
+    width:80px;
+	height:80px;
+	margin-left:70px;
+	position: absolute;
+	top:9px;
 }
+/* .register-content .form-group {
+	background-size: cover;
+	background: url("../../img/login/password.png") no-repeat 23px;
+} */
 /*.register-form .password{
     background: url("../../img/login/password.png") no-repeat 23px;
 }*/
@@ -348,16 +342,12 @@ i .upload_shop_img{
     -webkit-box-shadow: none;
     box-shadow: none;
     width: 356px;
-    border: 1px solid #651BCF;
+    border-bottom: 1px solid #651BCF;
     background: #F2F2F2;
-    border-left: none;
-    border-right: none;
-    border-top: none;
     font-size: 20px;
     height: 40px;
     line-height: 1.5;
-    margin: auto;
-    margin-left: 100px;
+    margin-left: 10px;
     outline: none;
     padding: 0 4px;
     color: #000;
@@ -371,10 +361,7 @@ i .upload_shop_img{
 .register-form button {
     width: 385px;
     height: 70px;
-    margin-left: 109px;
-
     font-size: 24px;
-    line-height: 1.0;
     border-radius: 24.97px;
     white-space: normal;
     -webkit-transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
@@ -394,6 +381,8 @@ i .upload_shop_img{
     border: 1px solid transparent;
     cursor: pointer;
     outline: none;
+	display: block;
+	margin: 20px auto 30px;
 }
 
 .register-form button[disabled], .login-form button[disabled]:hover {
@@ -408,7 +397,34 @@ i .upload_shop_img{
     background-color: #fd717e;
     border-color: #fd717e;
 }
-
+.form_box {
+	width: 400px;
+	overflow: hidden;
+}
+.form_code {
+	display: flex;
+	align-items: flex-end;
+}
+.form_code .input_icon {
+	flex-shrink: 0;
+	height: 25px;
+}
+.code_form {
+	display: flex;
+	flex:1;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+.code_form input {
+	width: 200px;
+}
+.code_text {
+	background: linear-gradient(to right, #434AE7 0%,#6717CD 100%);
+	padding: 4px 6px;
+	cursor: pointer;
+	border-radius: 4px;
+	color: #fff;
+}
 @media screen and (max-width: 404px) {
     .register-body {
         width: 310px;
