@@ -63,7 +63,7 @@ class IndexModel extends BaseModel
                 ->join('contact_model', 'contact_model.model_id = contact_specification.model_id')
                 ->where('contact_specification.user_id',$user_id)
                 ->where('contact_model.model_id',$modal)
-                ->where('contact_specification.type',$type)
+                ->where('contact_specification.type_id',$type)
                 ->where('contact_specification.degree',$degree)
                 ->where('contact_specification.brand_id',$brand_id)
                 ->where('contact_specification.color_id',$color)
