@@ -183,6 +183,7 @@ class Index extends Controller
      */
     public function smscode(){
         $phone = $this->request->post('phone');
+//        dump($this->request->post());die();
         $smsConfig = SettingModel::getItem('sms', '10001');
         $SmsDriver = new SmsDriver($smsConfig);
         $code = rand(1000,9999);
