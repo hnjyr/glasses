@@ -58,7 +58,7 @@ class IndexModel extends BaseModel
             ->join('contact_brand','contact_brand.brand_id = contact_color.brand_id')
             ->join('contact_model','contact_model.model_id = contact_color.model_id')
             ->join('user', 'user.user_id = contact_color.user_id')
-            ->where('contact_color.type',$type)
+            ->where('contact_color.type_id',$type)
             ->where('contact_color.brand_id',$brand_id)
             ->where('contact_color.model_id',$model_id)
             ->where('contact_color.is_delete',0)
