@@ -135,7 +135,18 @@
 		#btn-submit-register {
 			margin-top: 20px;
 		}
-		
+
+        .layui-layer {
+            position: fixed!important;
+            top: 50%!important;
+            left: 50%!important;
+            transform: translate(-50%,-50%)!important;
+            background: rgba(0,0,0,0.7)!important;
+            padding: 15px 30px!important;
+            border-radius: 10px!important;
+            color: #fff!important;
+        }
+
     </style>
 </head>
 <body class="page-login-v3">
@@ -172,7 +183,7 @@
 							<img class="input_icon" src="assets/store/img/login/code.png" alt="" style="">
 							<div class="code_form">
 								<input id='code' class="code" name="Register[code]" maxlength='4' placeholder="请输入验证码" type="text" required >
-								<div class="code_text">获取验证码</div>
+								<div id="send_code" class="code_text">获取验证码</div>
 							</div>
 						</div>
 						
@@ -304,12 +315,69 @@
         }
     })
 	$('.brand-text').click(function() {
-		console.log(1)
+		// console.log(1)
 		$('.register-form').addClass('form_move')
 	})
-	$('btn-submit-register-x').click(function() {
-		console.log(1)
+	$('#btn-submit-register-x').click(function() {
+		// console.log(1)
+        var phone = $('#phone').val();
+        var code = $('#code').val();
+        var linkman = $('.username').val();
+        var password = $('.password').val();
+        var password1 = $('.password1').val();
+
+        if (password != password1){
+            alert("两次密码不一致！")
+        }
+        $.ajax({
+            url:"index.php?s=/store/passport/is_user",
+            type:"post",
+            data: {phone:phone,code:code,linkman:linkman,password:password},
+            success: function(data) {
+                if(data.code == 1){
+                    layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                    });
+                }else{
+                    layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                    });
+                }
+            },
+            error:function(err) {
+                alert("发送失败！")
+            }
+        });
+
 	})
+    $('#send_code').click(function() {
+        // console.log(2)
+        var phone = $('#phone').val();
+        var code = $('#code').val();
+        $('#send_code').attr("disabled",true);
+        if(phone.trim()!=''){
+            $.ajax({
+                url:"index.php?s=/api/salesman.index/smscode",
+                type:"post",
+                data: {phone:phone},
+                success: function(data) {
+                    if(data.code == 1){
+                        layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                        });
+                    }else{
+                        layer.msg(data.msg, {time: 1500, anim: 1}, function () {
+                        });
+                    }
+                },
+                error:function(err) {
+                    alert("发送失败！")
+                }
+            });
+        } else{
+            layer.msg('请输入手机号', {time: 1500, anim: 1}, function () {
+            });
+        }
+        console.log(phone);
+
+    })
     $('#btn-submit-register').click(function(){
 		var show=$('#show').text()
 		var img=$('#img')[0]
