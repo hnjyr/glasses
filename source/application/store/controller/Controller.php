@@ -197,6 +197,18 @@ class Controller extends \think\Controller
             return true;
         }
 
+        if ($this->routeUri === 'inventory.contact/gettypelist') {
+            return true;
+        }
+        if ($this->routeUri === 'inventory.index/del_type') {
+            return true;
+        }
+        if ($this->routeUri === 'inventory.index/update_type') {
+            return true;
+        }
+        if ($this->routeUri === 'inventory.index/add_type') {
+            return true;
+        }
 //        dump($this->routeUri);
         if (!Auth::getInstance()->checkPrivilege($this->routeUri)) {
             throw new BaseException(['msg' => '很抱歉，没有访问权限!']);
