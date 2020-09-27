@@ -143,10 +143,11 @@ class Index extends Controller
                 $list[$key]['standard_inventory'] = $value['standard_inventory'];
                 $list[$key]['now_inventory'] = $value['now_inventory'];
                 $list[$key]['create_time'] = $value['create_time'];
-                $list[$key]['inventory'] = $list['standard_inventory'] - $list['now_inventory'];
+                $list[$key]['inventory'] = $value['standard_inventory'] - $value['now_inventory'];
             }
 
 
+//            dump($list);die();
         return json_encode($list);
     }
 
@@ -185,6 +186,24 @@ class Index extends Controller
         $db_name = $this->channelDb($db_type);
         $res = Db::name(''.$db_name.'')
             ->where('brand_id',$brand_id)
+            ->where('user_id','in',$admin_info['user_id'])
+            ->update(['is_delete'=>1]);
+
+
+        if ($res){
+
+            return json_encode($this->renderSuccess('删除成功'));
+        }
+        return json_encode($this->renderError('删除失败'));
+    }
+    public function del_type(){
+        $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
+        $this_user = Db::name('user')->where(['pid'=>$admin_info['user_id']])->column('user_id');
+        $data = $this->request->param();
+        $type_id = $data['type_id'];
+
+        $res = Db::name('contact_type')
+            ->where('type_id',$type_id)
             ->where('user_id','in',$admin_info['user_id'])
             ->update(['is_delete'=>1]);
 
@@ -288,6 +307,21 @@ class Index extends Controller
             ->where('brand_id',$brand_id)
             ->where('user_id','in',$admin_info['user_id'])
             ->update(['brand_name'=>$brand_name]);
+        if ($res){
+
+            return json_encode($this->renderSuccess('修改成功'));
+        }
+        return json_encode($this->renderError('修改失败'));
+    }
+    public function update_type(){
+        $date = $this->postData();
+        $type_id = $date['type_id'];
+        $type = $date['type'];
+        $admin_info = Db::name('store_user')->where(['store_user_id'=>Session::get('yoshop_store')['user']['store_user_id']])->find();
+        $res = Db::name('contact_type')
+            ->where('type_id',$type_id)
+            ->where('user_id','in',$admin_info['user_id'])
+            ->update(['type'=>$type]);
         if ($res){
 
             return json_encode($this->renderSuccess('修改成功'));
@@ -478,6 +512,30 @@ class Index extends Controller
         }
         return json_encode($this->renderError('添加失败'));
     }
+    public function add_type()
+    {
+        $admin_info = Session::get('yoshop_store')['user'];
+        $user_info = Db::name('store_user')->where(['store_user_id'=>$admin_info['store_user_id']])->find();
+        $date = $this->postData();
+        $data['user_id'] = $user_info['user_id'];
+        $data['brand_id'] = $date['brand_id'];
+        $data['type']= $date['type'];
+        $data['create_time'] = time();
+
+        $res = Db::name('contact_type')
+            ->insert($data);
+        $new_brand_id = Db::name('contact_type')
+            ->where('type',$date['type'])
+            ->where('user_id',$user_info['user_id'])
+            ->where('brand_id',$date['brand_id'])
+            ->order('create_time','desc')->find();
+        $new_brand_id = $new_brand_id['type_id'];
+        if ($res){
+
+            return json_encode($this->renderSuccess('添加成功',[],['type_id'=>$new_brand_id]));
+        }
+        return json_encode($this->renderError('添加失败'));
+    }
     public function add_model()
     {
         $admin_info = Session::get('yoshop_store')['user'];
@@ -504,7 +562,7 @@ class Index extends Controller
                 ->order('create_time','desc')->find();
             $new_brand_id = $new_brand_id['model_id'];
         }elseif ($dbtype == 3){
-            $data['type'] = $date['type'];
+            $data['type_id'] = $date['type_id'];
 
             $res = Db::name('contact_model')
                 ->insert($data);
@@ -512,7 +570,7 @@ class Index extends Controller
                 ->where('model',$date['model'])
                 ->where('user_id',$user_info['user_id'])
                 ->where('brand_id',$date['brand_id'])
-                ->where('type',$date['type'])
+                ->where('type_id',$date['type_id'])
                 ->order('create_time','desc')->find();
             $new_brand_id = $new_brand_id['model_id'];
         }else{
@@ -545,7 +603,7 @@ class Index extends Controller
         $data['brand_id'] = $date['brand_id'];
         $data['model_id'] = $date['model_id'];
         $data['create_time'] = time();
-        $data['type'] = $date['type'];
+        $data['type_id'] = $date['type_id'];
         $data['color'] = $date['color'];
         $res = Db::name('contact_color')
             ->insert($data);
@@ -553,7 +611,7 @@ class Index extends Controller
             ->where('user_id',$user_info['user_id'])
             ->where('brand_id',$date['brand_id'])
             ->where('model_id',$date['model_id'])
-            ->where('type',$date['type'])
+            ->where('type_id',$date['type_id'])
             ->where('color',$date['color'])
             ->order('create_time','desc')->find();
 
@@ -620,7 +678,7 @@ class Index extends Controller
 
             $new_brand_id = $new_brand_id['specification_id'];
         }elseif ($dbtype == 3){
-            $data['type'] = $date['type'];
+            $data['type_id'] = $date['type_id'];
             $data['degree'] = $date['degree'];
             $data['color_id'] = $date['color_id'];
             $res = Db::name('contact_specification')
@@ -628,8 +686,10 @@ class Index extends Controller
             $new_brand_id = Db::name('contact_specification')
                 ->where('user_id',$user_info['user_id'])
                 ->where('brand_id',$date['brand_id'])
+                ->where('type_id',$date['type_id'])
                 ->where('model_id',$date['model_id'])
                 ->where('color_id',$date['color_id'])
+                ->where('degree',$date['degree'])
                 ->order('create_time','desc')->find();
             $new_brand_id = $new_brand_id['specification_id'];
 
