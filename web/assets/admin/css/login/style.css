@@ -106,10 +106,11 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -50;
     width: 100%;
     height: 100%;
     content: '';
+    margin: 0 auto;
     background: #62a8ea;
     background: url(../../img/login_bg.jpg) center center/cover no-repeat !important;
 }
